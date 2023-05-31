@@ -8,7 +8,6 @@ int main(int argc, char *argv[])
     //    auto refBuilder = Gtk::Builder::create();
     auto builder = Gtk::Builder::create_from_file("window.glade");
 
-    //    void* window;
     Gtk::Window* window;
     builder->get_widget("window", window);
 
