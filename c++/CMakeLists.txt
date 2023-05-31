@@ -7,6 +7,7 @@ pkg_check_modules(GTKMM REQUIRED gtkmm-3.0)
 
 set(SOURCES
   main.cpp
+  window.glade
 )
 
 #add_executable(c++ main.cpp) #生成可执行文件
@@ -19,3 +20,6 @@ target_link_libraries(${PROJECT_TARGET} PRIVATE ${GTKMM_LIBRARIES})
 target_include_directories(${PROJECT_TARGET} PRIVATE ${GTKMM_INCLUDE_DIRS})
 target_link_directories(${PROJECT_TARGET} PRIVATE ${GTKMM_LIBRARY_DIRS})
 target_compile_options(${PROJECT_TARGET} PRIVATE ${GTKMM_CFLAGS_OTHER})
+
+message("hello")
+file(COPY window.glade DESTINATION ${CMAKE_CURRENT_BINARY_DIR})

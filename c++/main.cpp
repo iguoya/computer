@@ -2,11 +2,17 @@
 
 int main(int argc, char *argv[])
 {
-  Glib::RefPtr<Gtk::Application> app =
-    Gtk::Application::create(argc, argv,
-      "org.gtkmm.examples.base");
+    auto app = Gtk::Application::create(argc, argv,
+                                        "org.gtkmm.examples.base");
 
-  Gtk::ApplicationWindow window;
+    //    auto refBuilder = Gtk::Builder::create();
+    auto builder = Gtk::Builder::create_from_file("window.glade");
 
-  return app->run(window);
+    //    void* window;
+    Gtk::Window* window;
+    builder->get_widget("window", window);
+
+    return app->run(*window);
+            //    Gtk::ApplicationWindow window;
+            //    return app->run(window);
 }
