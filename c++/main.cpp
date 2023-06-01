@@ -1,4 +1,5 @@
 #include <gtkmm.h>
+#include "mainwindow.h"
 
 int main(int argc, char *argv[])
 {
@@ -8,8 +9,11 @@ int main(int argc, char *argv[])
     //    auto refBuilder = Gtk::Builder::create();
     auto builder = Gtk::Builder::create_from_file("window.glade");
 
-    Gtk::Window* window;
-    builder->get_widget("window", window);
+
+//    Gtk::Window* window;
+    MainWindow* window;
+    builder->get_widget_derived("window", window);
+//    builder->get_widget("window", window);
 
     return app->run(*window);
             //    Gtk::ApplicationWindow window;
