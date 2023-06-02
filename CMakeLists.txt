@@ -1,6 +1,8 @@
-cmake_minimum_required(VERSION 2.8)
+#cmake_minimum_required(VERSION 2.8)
+#cmake_minimum_required(VERSION 3.5) #设置CMake最小版本
+cmake_minimum_required(VERSION 3.25)
 
 add_subdirectory(c++)
 
-#project(computer)
+project(computer)
 #add_executable(${PROJECT_NAME} "main.cpp")

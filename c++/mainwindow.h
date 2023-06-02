@@ -1,21 +1,30 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <gtkmm.h>
+//#include <gtkmm.h>
+#include <gtkmm/application.h>
+#include <gtkmm/applicationwindow.h>
+#include <gtkmm/builder.h>
+#include <giomm.h>
+#include <gtkmm/messagedialog.h>
+#include <gtkmm/filechooser.h>
+#include <gtkmm/filechooserdialog.h>
 
-
-class MainWindow : public Gtk::Window
+class MainWindow : public Gtk::Application
 {
 public:
-    MainWindow(BaseObjectType* obj, Glib::RefPtr<Gtk::Builder> const& builder)
-        : Gtk::Window(obj)
-        , builder{builder}
-    {
+    MainWindow();
 
-    }
-    virtual ~MainWindow() = default;
+//    virtual ~MainWindow() = default;
+
+protected:
+    void on_startup() override;
+    void on_activate() override;
+
 private:
     Glib::RefPtr<Gtk::Builder> builder;
+    Gtk::ApplicationWindow *window;
+
 };
 
 
