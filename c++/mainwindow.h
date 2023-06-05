@@ -1,7 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-//#include <gtkmm.h>
+#include <gtkmm.h>
 #include <gtkmm/application.h>
 #include <gtkmm/applicationwindow.h>
 #include <gtkmm/builder.h>
@@ -9,13 +9,14 @@
 #include <gtkmm/messagedialog.h>
 #include <gtkmm/filechooser.h>
 #include <gtkmm/filechooserdialog.h>
+#include "assert.h"
 
 class MainWindow : public Gtk::Application
 {
 public:
     MainWindow();
 
-//    virtual ~MainWindow() = default;
+    //    virtual ~MainWindow() = default;
 
 protected:
     void on_startup() override;
@@ -24,7 +25,18 @@ protected:
 private:
     Glib::RefPtr<Gtk::Builder> builder;
     Gtk::ApplicationWindow *window;
+    Gtk::TreeView* treeview_menu;
+    Glib::RefPtr<Gtk::TreeStore> treemodel_menu;
+    Glib::RefPtr<Gtk::ListStore> list_store;
 
+    class ModelColumns : public Gtk::TreeModel::ColumnRecord
+    {
+    public:
+        ModelColumns() { add(name); add(age); }
+
+        Gtk::TreeModelColumn<Glib::ustring> name;
+        Gtk::TreeModelColumn<Glib::ustring> age;
+    };
 };
 
 

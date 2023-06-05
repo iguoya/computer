@@ -1,5 +1,5 @@
 #cmake_minimum_required(VERSION 3.5) #设置CMake最小版本
-cmake_minimum_required(VERSION 3.25)
+cmake_minimum_required(VERSION 3.13)
 #project ()
 set(PROJECT_TARGET c++)
 
@@ -36,8 +36,8 @@ add_executable(c++
 #)
 #target_link_libraries(${PROJECT_TARGET} PRIVATE gui)
 
-install(TARGETS ${PROJECT_TARGET}
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
+#install(TARGETS ${PROJECT_TARGET}
+#    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
 
 find_package(PkgConfig REQUIRED)
