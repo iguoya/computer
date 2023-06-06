@@ -36,8 +36,6 @@ void MainWindow::on_activate()
 
     list_store = Gtk::ListStore::create(columns);
 
-
-
 //        auto items = Glib::RefPtr<Gtk::TreeStore>::cast_dynamic(
 //            builder->get_object("treemodel_menu")
 //        );

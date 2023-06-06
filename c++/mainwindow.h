@@ -11,7 +11,10 @@
 #include <gtkmm/filechooserdialog.h>
 #include "assert.h"
 
-class MainWindow : public Gtk::Application
+using namespace Glib;
+using namespace Gtk;
+
+class MainWindow : public Application
 {
 public:
     MainWindow();
@@ -23,24 +26,25 @@ protected:
     void on_activate() override;
 
 private:
-    Glib::RefPtr<Gtk::Builder> builder;
-    Gtk::ApplicationWindow *window;
-    Gtk::TreeView* treeview_menu;
-    Glib::RefPtr<Gtk::TreeStore> treemodel_menu;
-    Glib::RefPtr<Gtk::ListStore> list_store;
+    RefPtr<Builder> builder;
+    ApplicationWindow *window;
+    TreeView* treeview_menu;
+    RefPtr<TreeStore> treemodel_menu;
+    RefPtr<ListStore> list_store;
 
-    class ModelColumns : public Gtk::TreeModel::ColumnRecord
+    class ModelColumns : public TreeModel::ColumnRecord
     {
     public:
         ModelColumns() { add(name); add(age); }
 
-        Gtk::TreeModelColumn<Glib::ustring> name;
-        Gtk::TreeModelColumn<Glib::ustring> age;
+        TreeModelColumn<ustring> name;
+        TreeModelColumn<ustring> age;
+        TreeModelColumn<uint8_t> asge;
     };
 };
 
 
-//class MainWindow  : public Gtk::Window
+//class MainWindow  : public Window
 //{
 //public:
 //    MainWindow(BaseObjectType* parent = nullptr);
@@ -57,8 +61,8 @@ private:
 ////    };
 
 //protected:
-//    Glib::RefPtr<Gtk::Builder> ui;
-//    Gtk::Window* window;
+//    RefPtr<Builder> ui;
+//    Window* window;
 //};
 
 

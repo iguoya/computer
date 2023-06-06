@@ -28,8 +28,9 @@ add_executable(c++
     main.cpp
     mainwindow.h
     mainwindow.cpp
+    resources/window.glade
 )
-
+#
 #add_library(gui
 #    window.h
 #    window.cpp
