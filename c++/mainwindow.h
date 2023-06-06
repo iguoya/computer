@@ -35,11 +35,15 @@ private:
     class ModelColumns : public TreeModel::ColumnRecord
     {
     public:
-        ModelColumns() { add(name); add(age); }
+        ModelColumns() {
+            add(chapter);
+            add(identifier);
+            add(priority);
+        }
 
-        TreeModelColumn<ustring> name;
-        TreeModelColumn<ustring> age;
-        TreeModelColumn<uint8_t> asge;
+        TreeModelColumn<ustring> chapter;
+        TreeModelColumn<ustring> identifier;
+        TreeModelColumn<uint8_t> priority;
     };
 };
 
