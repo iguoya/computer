@@ -10,6 +10,7 @@
 #include <gtkmm/filechooser.h>
 #include <gtkmm/filechooserdialog.h>
 #include "assert.h"
+#include "menumodel.h"
 
 using namespace Glib;
 using namespace Gtk;
@@ -28,23 +29,14 @@ protected:
 private:
     RefPtr<Builder> builder;
     ApplicationWindow *window;
-    TreeView* treeview_menu;
-    RefPtr<TreeStore> treemodel_menu;
+    TreeView* menu;
+    MenuModel menu_model;
+
     RefPtr<TreeStore> list_store;
 
-    class ModelColumns : public TreeModel::ColumnRecord
-    {
-    public:
-        ModelColumns() {
-            add(chapter);
-            add(identifier);
-            add(priority);
-        }
+//    struct
 
-        TreeModelColumn<ustring> chapter;
-        TreeModelColumn<ustring> identifier;
-        TreeModelColumn<uint8_t> priority;
-    };
+
 };
 
 

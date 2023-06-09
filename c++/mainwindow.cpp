@@ -22,28 +22,16 @@ void MainWindow::on_startup()
 void MainWindow::on_activate()
 {
     builder->get_widget("window", window);
-    builder->get_widget("treeview_menu", treeview_menu);
+    builder->get_widget("treeview_menu", menu);
 
-    ModelColumns columns;
-    treemodel_menu = TreeStore::create(columns);
 
 //        auto items = Glib::RefPtr<TreeStore>::cast_dynamic(
 //            builder->get_object("treemodel_menu")
 //        );
-    treeview_menu->set_model(treemodel_menu);
+    menu->set_model(menu_model.getModel());
 
-    TreeModel::Row row = *(treemodel_menu->append());
-    row[columns.chapter] = "John";
-    row[columns.identifier] = "中文描述";
-    row[columns.priority] = 30;
 
-    Gtk::TreeModel::Row childrow = *(treemodel_menu->append(row.children()));
-    childrow[columns.priority] = 11;
-    childrow[columns.chapter] = "Billy Bob Junior";
 
-    childrow = *(treemodel_menu->append(row.children()));
-    childrow[columns.priority] = 12;
-    childrow[columns.chapter] = "Sue Bob";
 
 //    row = *(list_store->append());
 //    row[columns.chapter] = "Lisa";
