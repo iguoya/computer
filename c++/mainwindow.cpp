@@ -25,23 +25,30 @@ void MainWindow::on_activate()
     builder->get_widget("treeview_menu", treeview_menu);
 
     ModelColumns columns;
-
-    list_store = ListStore::create(columns);
+    treemodel_menu = TreeStore::create(columns);
 
 //        auto items = Glib::RefPtr<TreeStore>::cast_dynamic(
 //            builder->get_object("treemodel_menu")
 //        );
-    treeview_menu->set_model(list_store);
+    treeview_menu->set_model(treemodel_menu);
 
-    TreeModel::Row row = *(list_store->append());
+    TreeModel::Row row = *(treemodel_menu->append());
     row[columns.chapter] = "John";
     row[columns.identifier] = "中文描述";
     row[columns.priority] = 30;
 
-    row = *(list_store->append());
-    row[columns.chapter] = "Lisa";
-    row[columns.identifier] = "中文描述";
-    row[columns.priority] = 27;
+    Gtk::TreeModel::Row childrow = *(treemodel_menu->append(row.children()));
+    childrow[columns.priority] = 11;
+    childrow[columns.chapter] = "Billy Bob Junior";
+
+    childrow = *(treemodel_menu->append(row.children()));
+    childrow[columns.priority] = 12;
+    childrow[columns.chapter] = "Sue Bob";
+
+//    row = *(list_store->append());
+//    row[columns.chapter] = "Lisa";
+//    row[columns.identifier] = "中文描述";
+//    row[columns.priority] = 27;
     //    builder->get_widget("treestore_menu", treemodel_menu);
     //    auto items = Glib::RefPtr<TreeStore>::cast_dynamic(
     //        builder->get_object("treemodel_menu")

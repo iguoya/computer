@@ -30,7 +30,7 @@ private:
     ApplicationWindow *window;
     TreeView* treeview_menu;
     RefPtr<TreeStore> treemodel_menu;
-    RefPtr<ListStore> list_store;
+    RefPtr<TreeStore> list_store;
 
     class ModelColumns : public TreeModel::ColumnRecord
     {
