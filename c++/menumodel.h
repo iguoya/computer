@@ -10,15 +10,7 @@ using namespace Glib;
 using namespace Gtk;
 
 
-class MenuNode {
-public:
-    MenuNode(ustring c, ustring i, ustring d):
-        chapter(c), identifier(i), description(d){};
-    ustring chapter;
-    ustring identifier;
-    ustring description;
-//        uint8_t priority;
-};
+
 
 class MenuModel
 {
@@ -34,17 +26,21 @@ public:
             add(chapter);
             add(identifier);
             add(description);
-//            add(priority);
+            //            add(priority);
         }
 
         TreeModelColumn<ustring> chapter;
         TreeModelColumn<ustring> identifier;
         TreeModelColumn<ustring> description;
-//        TreeModelColumn<uint8_t> priority;
+        //        TreeModelColumn<uint8_t> priority;
     };
 private:
     RefPtr<TreeStore> model;
-
+    using MenuNode = struct {
+    ustring chapter;
+    ustring identifier;
+    ustring description;
+};
 
 };
 

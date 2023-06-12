@@ -26,6 +26,8 @@
             <property name="can-focus">True</property>
             <property name="model">treestore_menu</property>
             <property name="search-column">0</property>
+            <property name="level-indentation">4</property>
+            <property name="enable-tree-lines">True</property>
             <child internal-child="selection">
               <object class="GtkTreeSelection"/>
             </child>
@@ -62,7 +64,7 @@
             </child>
           </object>
           <packing>
-            <property name="resize">True</property>
+            <property name="resize">False</property>
             <property name="shrink">False</property>
           </packing>
         </child>
