@@ -1,8 +1,7 @@
 #cmake_minimum_required(VERSION 3.5) #设置CMake最小版本
 cmake_minimum_required(VERSION 3.13)
 
-set(PROJECT_TARGET c++)
-
+set(target c++)
 
 project(c++
     VERSION 1.0
@@ -19,19 +18,26 @@ set(CMAKE_CXX_FLAGS "-Wall")
 #file(GLOB SOURCES "*.cpp")
 message(${CMAKE_CURRENT_SOURCE_DIR})
 
+include_directories(framework/)
+include_directories(keyword/)
+
 FILE(GLOB_RECURSE LibFiles "*.h")
+
 add_custom_target(headers SOURCES ${LibFiles})
 
 add_executable(c++
     main.cpp
     mainwindow.cpp
     menumodel.cpp
+    framework/chapter.cpp
+    framework/factory.cpp
+    keyword/auto.h keyword/auto.cpp
     resources/window.glade
 )
 
-#target_link_libraries(${PROJECT_TARGET} PRIVATE gui)
+#target_link_libraries(${target} PRIVATE gui)
 
-#install(TARGETS ${PROJECT_TARGET}
+#install(TARGETS ${target}
 #    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
 
@@ -49,20 +55,21 @@ pkg_check_modules(GLIB REQUIRED glib-2.0)
 
 #add_executable(c++ main.cpp) #生成可执行文件
 # Create the executable
-#add_executable(${PROJECT_TARGET} ${SOURCES})
-#target_link_libraries(${PROJECT_TARGET} PRIVATE ${GTKMM_LIBRARIES})
+#add_executable(${target} ${SOURCES})
+#target_link_libraries(${target} PRIVATE ${GTKMM_LIBRARIES})
 
 # Setup CMake to use GTK+, tell the compiler where to look for headers
 # and to the linker where to look for libraries
-target_include_directories(${PROJECT_TARGET} PRIVATE ${GTKMM_INCLUDE_DIRS})
-target_link_directories(${PROJECT_TARGET} PRIVATE ${GTKMM_LIBRARY_DIRS})
-target_compile_options(${PROJECT_TARGET} PRIVATE ${GTKMM_CFLAGS_OTHER})
+target_include_directories(${target} PRIVATE ${GTKMM_INCLUDE_DIRS})
+target_link_directories(${target} PRIVATE ${GTKMM_LIBRARY_DIRS})
+target_compile_options(${target} PRIVATE ${GTKMM_CFLAGS_OTHER})
 
-target_link_libraries(${PROJECT_TARGET}
-        ${SIGCPP_LIBRARIES}
-        ${GTKMM_LIBRARIES}
-        ${GLIB_LDFLAGS}
-        )
+target_link_libraries(
+    ${target}
+    ${SIGCPP_LIBRARIES}
+    ${GTKMM_LIBRARIES}
+    ${GLIB_LDFLAGS}
+)
 
 
 #file(COPY window.glade DESTINATION ${CMAKE_CURRENT_BINARY_DIR})

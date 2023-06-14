@@ -2,16 +2,19 @@
 #define MAINWINDOW_H
 
 #include <gtkmm.h>
-#include <gtkmm/application.h>
-#include <gtkmm/applicationwindow.h>
-#include <gtkmm/builder.h>
+//#include <gtkmm/application.h>
+//#include <gtkmm/applicationwindow.h>
+//#include <gtkmm/builder.h>
 #include <giomm.h>
-#include <gtkmm/messagedialog.h>
-#include <gtkmm/filechooser.h>
-#include <gtkmm/filechooserdialog.h>
+//#include <gtkmm/messagedialog.h>
+//#include <gtkmm/filechooser.h>
+//#include <gtkmm/filechooserdialog.h>
 #include "assert.h"
 #include "menumodel.h"
+#include <iostream>
+#include "factory.h"
 
+using namespace std;
 using namespace Glib;
 using namespace Gtk;
 
@@ -25,12 +28,14 @@ public:
 protected:
     void on_startup() override;
     void on_activate() override;
+    void on_selected();
 
 private:
     RefPtr<Builder> builder;
     ApplicationWindow *window;
     TreeView* menu;
     MenuModel menu_model;
+    ModelColumns column;
 
     RefPtr<TreeStore> list_store;
 

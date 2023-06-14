@@ -10,15 +10,22 @@ MenuModel::MenuModel()
             {"关键字用法", "keywords", ""},
             {
                 {"Auto", "auto", "ssss"},
-                {"Const", "const", "vvvvv"},
-                {"智能指针", "const", "vvvvv"},
-
+                {"decltype", "const", "vvvvv"},
+                {"using", "const", "vvvvv"},
+                {"lambda", "const", "vvvvv"},
+                {"const", "const", "vvvvv"},
+                {"constexpr", "const", "vvvvv"},
+                {"move", "const", "vvvvv"},
+                {"nullptr", "const", "vvvvv"},
+                {"shared_ptr", "const", "vvvvv"},
+                {"unique_ptr", "const", "vvvvv"},
+                {"weak_ptr", "const", "vvvvv"},
             }
         },
         {
             {"高级用法", "grammar", ""},
             {
-                {"FunctionPointer", "函数指针", ""},
+                {"函数指针", "FunctionPointer", ""},
                 {"Auto", "auto", "dddd"},
                 {"Const", "const", "1"},
             }

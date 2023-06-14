@@ -27,9 +27,45 @@ void MainWindow::on_activate()
     menu->set_model(menu_model.getModel());
     menu->expand_all();
 
-    window->set_default_size(1200, 800);
+    menu->get_selection()->signal_changed().connect(
+                sigc::mem_fun(*this, &MainWindow::on_selected)
+                );
+
+
+    //    window->set_default_size(1200, 800);
     add_window(*window);
     window->show_all();
+}
+
+void MainWindow::on_selected()
+{
+    //    cout<<"hello"<<endl;
+    auto iter = menu->get_selection()->get_selected();
+    if(iter) //If anything is selected
+    {
+        auto row = *iter;
+        //        ustring chapter;
+        //        ustring identifier;
+        //        ustring description;
+        cout<< row[column.chapter]
+                <<"-----"
+               << row[column.identifier] <<"-----"
+               << row[column.description] <<"-----"
+               << std::endl;
+
+        auto chapter = Factory::create("auto");
+        chapter->run();
+
+
+//        if(product != nullptr) {
+//            product->s_notice.connect(sigc::mem_fun(*this, &MainWindow::notice));
+//            product->s_display.connect(sigc::mem_fun(*this, &MainWindow::display));
+
+//            product->s_set_columns.connect(sigc::mem_fun(*this, &MainWindow::setTableColumns));
+//            product->s_display_table.connect(sigc::mem_fun(*this, &MainWindow::displayTable));
+//            product->run();
+//        }
+    }
 }
 
 
