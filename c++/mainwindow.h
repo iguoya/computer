@@ -32,12 +32,15 @@ protected:
 
 private:
     RefPtr<Builder> builder;
-    ApplicationWindow *window;
+    ApplicationWindow* window;
     TreeView* menu;
-    MenuModel menu_model;
+    MenuModel menuModel;
     ModelColumns column;
 
     RefPtr<TreeStore> list_store;
+
+    TextView* textView;
+    Glib::RefPtr<TextBuffer> textBuffer;
 
 //    struct
 

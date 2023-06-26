@@ -8,7 +8,7 @@
 class Auto : public Chapter
 {
 public:
-    Auto();
+    explicit Auto();
     void run();
 };
 

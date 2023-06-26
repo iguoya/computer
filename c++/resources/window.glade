@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.40.0 -->
+<!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
-  <object class="GtkTextBuffer"/>
+  <object class="GtkTextBuffer" id="textbuffer"/>
   <object class="GtkTreeStore" id="treestore_menu">
     <columns>
       <!-- column-name chapter -->
@@ -15,30 +15,33 @@
   </object>
   <object class="GtkTreeStore" id="treestore_result"/>
   <object class="GtkApplicationWindow" id="window">
-    <property name="can-focus">False</property>
+    <property name="can_focus">False</property>
+    <child>
+      <placeholder/>
+    </child>
     <child>
       <object class="GtkPaned">
         <property name="visible">True</property>
-        <property name="can-focus">True</property>
+        <property name="can_focus">True</property>
         <property name="position">200</property>
-        <property name="position-set">True</property>
+        <property name="position_set">True</property>
         <child>
           <object class="GtkScrolledWindow">
             <property name="visible">True</property>
-            <property name="can-focus">True</property>
-            <property name="shadow-type">in</property>
+            <property name="can_focus">True</property>
+            <property name="shadow_type">in</property>
             <child>
               <object class="GtkViewport">
                 <property name="visible">True</property>
-                <property name="can-focus">False</property>
+                <property name="can_focus">False</property>
                 <child>
                   <object class="GtkTreeView" id="treeview_menu">
                     <property name="visible">True</property>
-                    <property name="can-focus">True</property>
+                    <property name="can_focus">True</property>
                     <property name="model">treestore_menu</property>
-                    <property name="search-column">0</property>
-                    <property name="level-indentation">4</property>
-                    <property name="enable-tree-lines">True</property>
+                    <property name="search_column">0</property>
+                    <property name="level_indentation">4</property>
+                    <property name="enable_tree_lines">True</property>
                     <child internal-child="selection">
                       <object class="GtkTreeSelection"/>
                     </child>
@@ -86,27 +89,27 @@
         <child>
           <object class="GtkNotebook">
             <property name="visible">True</property>
-            <property name="can-focus">True</property>
+            <property name="can_focus">True</property>
             <child>
-              <object class="GtkTextView" id="treeview_result">
+              <object class="GtkTextView" id="textview">
                 <property name="visible">True</property>
-                <property name="can-focus">True</property>
+                <property name="can_focus">True</property>
               </object>
             </child>
             <child type="tab">
               <object class="GtkLabel">
                 <property name="visible">True</property>
-                <property name="can-focus">False</property>
+                <property name="can_focus">False</property>
                 <property name="label" translatable="yes">page 1</property>
               </object>
               <packing>
-                <property name="tab-fill">False</property>
+                <property name="tab_fill">False</property>
               </packing>
             </child>
             <child>
               <object class="GtkTreeView">
                 <property name="visible">True</property>
-                <property name="can-focus">True</property>
+                <property name="can_focus">True</property>
                 <property name="model">treestore_result</property>
                 <child internal-child="selection">
                   <object class="GtkTreeSelection"/>
@@ -119,18 +122,18 @@
             <child type="tab">
               <object class="GtkLabel">
                 <property name="visible">True</property>
-                <property name="can-focus">False</property>
+                <property name="can_focus">False</property>
                 <property name="label" translatable="yes">page 2</property>
               </object>
               <packing>
                 <property name="position">1</property>
-                <property name="tab-fill">False</property>
+                <property name="tab_fill">False</property>
               </packing>
             </child>
             <child>
               <object class="GtkSpinner">
                 <property name="visible">True</property>
-                <property name="can-focus">False</property>
+                <property name="can_focus">False</property>
               </object>
               <packing>
                 <property name="position">2</property>
@@ -139,12 +142,12 @@
             <child type="tab">
               <object class="GtkLabel">
                 <property name="visible">True</property>
-                <property name="can-focus">False</property>
+                <property name="can_focus">False</property>
                 <property name="label" translatable="yes">page 3</property>
               </object>
               <packing>
                 <property name="position">2</property>
-                <property name="tab-fill">False</property>
+                <property name="tab_fill">False</property>
               </packing>
             </child>
           </object>

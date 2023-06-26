@@ -1,5 +1,5 @@
 #cmake_minimum_required(VERSION 3.5) #设置CMake最小版本
-cmake_minimum_required(VERSION 3.13)
+cmake_minimum_required(VERSION 3.10)
 
 set(target c++)
 
@@ -47,21 +47,12 @@ pkg_check_modules(SIGCPP REQUIRED sigc++-2.0)
 pkg_check_modules(GLIB REQUIRED glib-2.0)
 
 
-#include_directories(
-#    ${GLIB_INCLUDE_DIRS}
-#    ${SIGCPP_INCLUDE_DIRS}
-#    ${GTKMM_INCLUDE_DIRS}
-#    )
+include_directories(
+    ${GLIB_INCLUDE_DIRS}
+    ${SIGCPP_INCLUDE_DIRS}
+    ${GTKMM_INCLUDE_DIRS}
+    )
 
-#add_executable(c++ main.cpp) #生成可执行文件
-# Create the executable
-#add_executable(${target} ${SOURCES})
-#target_link_libraries(${target} PRIVATE ${GTKMM_LIBRARIES})
-
-# Setup CMake to use GTK+, tell the compiler where to look for headers
-# and to the linker where to look for libraries
-target_include_directories(${target} PRIVATE ${GTKMM_INCLUDE_DIRS})
-target_link_directories(${target} PRIVATE ${GTKMM_LIBRARY_DIRS})
 target_compile_options(${target} PRIVATE ${GTKMM_CFLAGS_OTHER})
 
 target_link_libraries(

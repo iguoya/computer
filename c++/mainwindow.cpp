@@ -23,8 +23,16 @@ void MainWindow::on_activate()
 {
     builder->get_widget("window", window);
     builder->get_widget("treeview_menu", menu);
+    builder->get_widget("textview", textView);
 
-    menu->set_model(menu_model.getModel());
+    textBuffer = TextBuffer::create();
+    textView->set_buffer(textBuffer);
+
+
+    //    builder->get_widget_derived("textbuffer", textBuffer);
+
+
+    menu->set_model(menuModel.getModel());
     menu->expand_all();
 
     menu->get_selection()->signal_changed().connect(
@@ -47,6 +55,13 @@ void MainWindow::on_selected()
         //        ustring chapter;
         //        ustring identifier;
         //        ustring description;
+
+        textBuffer->insert_at_cursor("This is the text from TextBuffer #AAA.");
+        textBuffer->insert_at_cursor("This is the text from TextBuffer #BBBB.");
+        textBuffer->insert_at_cursor("This is the text from TextBuffer #CCC.");
+        textBuffer->insert_at_cursor("This is the text from TextBuffer #DDDD.");
+
+
         cout<< row[column.chapter]
                 <<"-----"
                << row[column.identifier] <<"-----"
@@ -57,14 +72,14 @@ void MainWindow::on_selected()
         chapter->run();
 
 
-//        if(product != nullptr) {
-//            product->s_notice.connect(sigc::mem_fun(*this, &MainWindow::notice));
-//            product->s_display.connect(sigc::mem_fun(*this, &MainWindow::display));
+        //        if(product != nullptr) {
+        //            product->s_notice.connect(sigc::mem_fun(*this, &MainWindow::notice));
+        //            product->s_display.connect(sigc::mem_fun(*this, &MainWindow::display));
 
-//            product->s_set_columns.connect(sigc::mem_fun(*this, &MainWindow::setTableColumns));
-//            product->s_display_table.connect(sigc::mem_fun(*this, &MainWindow::displayTable));
-//            product->run();
-//        }
+        //            product->s_set_columns.connect(sigc::mem_fun(*this, &MainWindow::setTableColumns));
+        //            product->s_display_table.connect(sigc::mem_fun(*this, &MainWindow::displayTable));
+        //            product->run();
+        //        }
     }
 }
 
