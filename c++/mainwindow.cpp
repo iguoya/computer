@@ -40,7 +40,7 @@ void MainWindow::on_activate()
                 );
 
 
-    //    window->set_default_size(1200, 800);
+    window->set_default_size(1200, 800);
     add_window(*window);
     window->show_all();
 }
