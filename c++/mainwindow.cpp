@@ -10,13 +10,15 @@ MainWindow::MainWindow()
 void MainWindow::on_startup()
 {
     Application::on_startup();
-    builder = Builder::create();
-    try {
-        builder->add_from_file("resources/window.glade");
-    } catch (const Glib::Error &ex) {
-        MessageDialog dialog("Error building UI: " + ex.what());
-        dialog.run();
-    }
+//    builder = Builder::create();
+     builder = Gtk::Builder::create_from_resource("/window.glade");
+//    try {
+//        builder->add_from_file("/window.glade");
+
+//    } catch (const Glib::Error &ex) {
+//        MessageDialog dialog("Error building UI: " + ex.what());
+//        dialog.run();
+//    }
 }
 
 void MainWindow::on_activate()
