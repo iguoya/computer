@@ -1,32 +1,10 @@
-#cmake_minimum_required(VERSION 3.5) #设置CMake最小版本
 cmake_minimum_required(VERSION 3.10)
-
 
 project(c++
     VERSION 1.0
     DESCRIPTION "c++ 专项练习"
-    LANGUAGES CXX) #设置工程名
-
-
-
-
-
-#set(
-#  RESOURCE_LIST
-#  style.css
-#  main_window.ui
-#)
-
-#compile_gresources(RESOURCE_FILE XML_OUT TYPE EMBED_C RESOURCES ${RESOURCE_LIST} SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/assets)
-
-#include_directories("src/include")
-#add_executable(
-#  ${PROJECT_NAME}
-#  "src/main.cpp"
-#  "src/window.cpp"
-#  "src/application.cpp"
-#  ${RESOURCE_FILE}
-#)
+    LANGUAGES CXX
+) #设置工程名
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_CXX_STANDARD 17)
@@ -44,9 +22,7 @@ include_directories(
     ${GLIB_INCLUDE_DIRS}
     ${SIGCPP_INCLUDE_DIRS}
     ${GTKMM_INCLUDE_DIRS}
-    )
-
-
+)
 
 include_directories(framework/)
 include_directories(keyword/)
@@ -68,6 +44,7 @@ compile_gresources(RESOURCE_FILE XML_OUT TYPE EMBED_C RESOURCES ${RESOURCE_LIST}
 
 add_executable(c++
     main.cpp
+    mainapplication.cpp
     mainwindow.cpp
     menumodel.cpp
     framework/chapter.cpp

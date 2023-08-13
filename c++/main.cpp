@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "mainapplication.h"
 
 int main(int argc, char *argv[])
 {
@@ -17,6 +17,8 @@ int main(int argc, char *argv[])
 //    return app->run(*window);
 //            //    Gtk::ApplicationWindow window;
 //            //    return app->run(window);
-    Glib::RefPtr<MainWindow> app(new MainWindow());
+
+    auto app = MainApplication::create();
+//    Glib::RefPtr<MainWindow> app(new MainWindow());
     return app->run(argc, argv);
 }

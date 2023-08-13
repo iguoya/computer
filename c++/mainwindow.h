@@ -2,13 +2,7 @@
 #define MAINWINDOW_H
 
 #include <gtkmm.h>
-//#include <gtkmm/application.h>
-//#include <gtkmm/applicationwindow.h>
-//#include <gtkmm/builder.h>
 #include <giomm.h>
-//#include <gtkmm/messagedialog.h>
-//#include <gtkmm/filechooser.h>
-//#include <gtkmm/filechooserdialog.h>
 #include "assert.h"
 #include "menumodel.h"
 #include <iostream>
@@ -16,58 +10,53 @@
 
 using namespace std;
 using namespace Glib;
-using namespace Gtk;
+//using namespace Gtk;
 
-class MainWindow : public Application
+class MainWindow : public Gtk::Window
 {
 public:
-    MainWindow();
-
-    //    virtual ~MainWindow() = default;
-
+    MainWindow(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>& refBuilder);
+    static MainWindow* create();
 protected:
-    void on_startup() override;
-    void on_activate() override;
-    void on_selected();
+    const Glib::RefPtr<Gtk::Builder> builder;
 
-private:
-    RefPtr<Builder> builder;
-    ApplicationWindow* window;
-    TreeView* menu;
-    MenuModel menuModel;
-    ModelColumns column;
 
-    RefPtr<TreeStore> list_store;
+//public:
+//    MainWindow();
 
-    TextView* textView;
-    Glib::RefPtr<TextBuffer> textBuffer;
+//    //    virtual ~MainWindow() = default;
 
-//    struct
+//protected:
+//    void on_startup() override;
+//    void on_activate() override;
+//    void on_selected();
+
+//private:
+//    RefPtr<Gtk::Builder> builder;
+//    ApplicationWindow* window;
+//    TreeView* menu;
+//    MenuModel menuModel;
+//    ModelColumns column;
+
+//    RefPtr<TreeStore> list_store;
+
+//    Gtk::TextView* textView;
+//    Glib::RefPtr<Gtk::TextBuffer> textBuffer;
+
+    //    struct
 
 
 };
 
 
-//class MainWindow  : public Window
-//{
+//class MainWindow : public Gtk::Window {
 //public:
-//    MainWindow(BaseObjectType* parent = nullptr);
-
-////    {
-////        if(ui) {
-////            ui->get_widget("window", window);
-////            set_default_size(1000, 600);
-////        }
-
-//////        set_title("hello");
-//////        show_all_children();
-////        show_all();
-////    };
-
+//  MainWindow(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>& refBuilder);
+//  static MainWindow* create();
 //protected:
-//    RefPtr<Builder> ui;
-//    Window* window;
+//  const Glib::RefPtr<Gtk::Builder> builder;
 //};
+
 
 
 

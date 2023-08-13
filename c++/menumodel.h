@@ -10,7 +10,7 @@ using namespace Glib;
 using namespace Gtk;
 
 
-class ModelColumns : public TreeModel::ColumnRecord
+class ModelColumns : public Gtk::TreeModel::ColumnRecord
 {
 public:
     ModelColumns() {
@@ -20,10 +20,10 @@ public:
         //            add(priority);
     }
 
-    TreeModelColumn<ustring> chapter;
-    TreeModelColumn<ustring> identifier;
-    TreeModelColumn<ustring> description;
-    //        TreeModelColumn<uint8_t> priority;
+    Gtk::TreeModelColumn<ustring> chapter;
+    Gtk::TreeModelColumn<ustring> identifier;
+    Gtk::TreeModelColumn<ustring> description;
+    //        Gtk::TreeModelColumn<uint8_t> priority;
 };
 
 
@@ -32,10 +32,10 @@ class MenuModel
 public:
     MenuModel();
 
-    RefPtr<TreeStore> getModel();
+    RefPtr<Gtk::TreeStore> getModel();
 
 //private:
-    RefPtr<TreeStore> model;
+    RefPtr<Gtk::TreeStore> model;
     using MenuNode = struct {
     ustring chapter;
     ustring identifier;
