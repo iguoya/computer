@@ -9,15 +9,16 @@ class MainApplication : public Gtk::Application
 public:
     MainApplication();
 
-public:
     static Glib::RefPtr<MainApplication> create();
 
 protected:
-    //  Application();
 
     void on_activate() override;
 
 private:
+
+    static MainWindow* window;
+
     MainWindow* create_window();
     void on_hide_window(Gtk::Window* window);
 

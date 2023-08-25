@@ -54,10 +54,10 @@ add_executable(c++
 )
 
 
-target_compile_options(${PROJECT_NAME} PRIVATE ${GTKMM_CFLAGS_OTHER})
+target_compile_options(c++ PRIVATE ${GTKMM_CFLAGS_OTHER})
 
 target_link_libraries(
-    ${PROJECT_NAME}
+    c++
     ${SIGCPP_LIBRARIES}
     ${GTKMM_LIBRARIES}
     ${GLIB_LDFLAGS}

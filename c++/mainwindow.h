@@ -10,54 +10,24 @@
 
 using namespace std;
 using namespace Glib;
-//using namespace Gtk;
+using namespace Gtk;
 
-class MainWindow : public Gtk::Window
+class MainWindow : public Gtk::ApplicationWindow
 {
 public:
-    MainWindow(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>& refBuilder);
-    static MainWindow* create();
+    MainWindow();
+//    MainWindow(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>& refBuilder);
+//    static MainWindow* create();
+
+
 protected:
-    const Glib::RefPtr<Gtk::Builder> builder;
 
 
-//public:
-//    MainWindow();
 
-//    //    virtual ~MainWindow() = default;
-
-//protected:
-//    void on_startup() override;
-//    void on_activate() override;
-//    void on_selected();
-
-//private:
-//    RefPtr<Gtk::Builder> builder;
-//    ApplicationWindow* window;
-//    TreeView* menu;
-//    MenuModel menuModel;
-//    ModelColumns column;
-
-//    RefPtr<TreeStore> list_store;
-
-//    Gtk::TextView* textView;
-//    Glib::RefPtr<Gtk::TextBuffer> textBuffer;
-
-    //    struct
-
+private:
+    RefPtr<Gtk::Builder> builder;
 
 };
-
-
-//class MainWindow : public Gtk::Window {
-//public:
-//  MainWindow(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>& refBuilder);
-//  static MainWindow* create();
-//protected:
-//  const Glib::RefPtr<Gtk::Builder> builder;
-//};
-
-
 
 
 #endif // MAINWINDOW_H
