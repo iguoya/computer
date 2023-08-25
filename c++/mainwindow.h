@@ -15,9 +15,8 @@ using namespace Gtk;
 class MainWindow : public Gtk::ApplicationWindow
 {
 public:
-    MainWindow();
-//    MainWindow(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>& refBuilder);
-//    static MainWindow* create();
+    MainWindow(GtkApplicationWindow* cobject, const Glib::RefPtr<Gtk::Builder>& refBuilder);
+//    MainWindow* create();
 
 
 protected:

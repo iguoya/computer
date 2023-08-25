@@ -1,59 +1,56 @@
 #include "mainwindow.h"
 
-//MainWindow::MainWindow(BaseObjectType *cobject,
-//                       const Glib::RefPtr<Gtk::Builder> &refBuilder)
-//    : Gtk::Window(cobject), builder(refBuilder) {}
+MainWindow::MainWindow(GtkApplicationWindow *cobject,
+                       const Glib::RefPtr<Gtk::Builder> &refBuilder)
+    : Gtk::ApplicationWindow(cobject), builder(refBuilder) {
+
+    //    builder = Gtk::Builder::create_from_resource("/window.glade");
+//        MainWindow* window = nullptr;
+
+        TreeView* menu;
+        MenuModel menuModel;
+        ModelColumns column;
+        RefPtr<TreeStore> list_store;
+
+        Gtk::TextView* textView;
+        Glib::RefPtr<Gtk::TextBuffer> textBuffer;
 
 
-MainWindow::MainWindow(): Gtk::ApplicationWindow()
-{
-//    builder = Gtk::Builder::create_from_resource("/window.glade");
-////    MainWindow* window = nullptr;
-
-//    TreeView* menu;
-//    MenuModel menuModel;
-//    ModelColumns column;
-//    RefPtr<TreeStore> list_store;
-
-//    Gtk::TextView* textView;
-//    Glib::RefPtr<Gtk::TextBuffer> textBuffer;
+//        builder->get_widget_derived("window", this);
 
 
-//    builder->get_widget_derived("window", window);
+    //    builder->get_widget("window", window);
+    //    builder->get_widget_derived("treeview_menu", menu);
+    //    builder->get_widget_derived("textview", textView);
 
-////    builder->get_widget("window", window);
-////    builder->get_widget_derived("treeview_menu", menu);
-////    builder->get_widget_derived("textview", textView);
-
-////    if (!window) {
-////        throw std::runtime_error("No \"window\" object in window.glade");
-////    }
+    //    if (!window) {
+    //        throw std::runtime_error("No \"window\" object in window.glade");
+    //    }
 
 
-////    textBuffer = TextBuffer::create();
-////    textView->set_buffer(textBuffer);
+    //    textBuffer = TextBuffer::create();
+    //    textView->set_buffer(textBuffer);
 
-////    menu->set_model(menuModel.getModel());
-////    menu->expand_all();
+    //    menu->set_model(menuModel.getModel());
+    //    menu->expand_all();
 
-//////    menu->get_selection()->signal_changed().connect(
-//////                sigc::mem_fun(*this, &MainWindow::on_selected)
-//////                );
+    ////    menu->get_selection()->signal_changed().connect(
+    ////                sigc::mem_fun(*this, &MainWindow::on_selected)
+    ////                );
 
 
-//    window->set_default_size(1200, 800);
+        set_default_size(1600, 1200);
 
-//    auto styleProvider = Gtk::CssProvider::create();
-//    styleProvider->load_from_resource("/style.css");
+//        auto styleProvider = Gtk::CssProvider::create();
+//        styleProvider->load_from_resource("/style.css");
 
-//    auto screen = Gdk::Display::get_default();
-//    auto context = window->get_style_context();
+//        auto screen = Gdk::Display::get_default();
+//        auto context = window->get_style_context();
 
-//    //  context->add_provider_for_display(screen, styleProvider, 800);
+        //  context->add_provider_for_display(screen, styleProvider, 800);
 
-////    return window;
+
 }
-
 
 
 //MainWindow *MainWindow::create() {
@@ -113,6 +110,5 @@ MainWindow::MainWindow(): Gtk::ApplicationWindow()
 //        //        }
 //    }
 //}
-
 
 

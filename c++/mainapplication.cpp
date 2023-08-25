@@ -8,8 +8,6 @@ MainApplication::MainApplication()
     set_application_name("c++ 专项练习");
 }
 
-
-
 Glib::RefPtr<MainApplication> MainApplication::create() {
     return Glib::RefPtr<MainApplication>(new MainApplication());
 }
@@ -21,22 +19,20 @@ void MainApplication::on_activate() {
 
 
 MainWindow* MainApplication::create_window() {
-//    auto window = MainWindow::create();
+    //    window = MainWindow::create();
+    auto builder = Gtk::Builder::create_from_resource("/window.glade");
+    GtkApplicationWindow* sss = nullptr;
 
-    window = new MainWindow;
+    auto window = new MainWindow(sss, builder);
+
+    builder->get_widget_derived("window", window);
 
     add_window(*window);
-
-
     window->signal_hide().connect(sigc::bind(sigc::mem_fun(*this, &MainApplication::on_hide_window), window));
-
     return window;
 }
 
-
-
-
-
 void MainApplication::on_hide_window(Gtk::Window* window) {
+    cout<<"bye !!!"<<endl;
     delete window;
 }
