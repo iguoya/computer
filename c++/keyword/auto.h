@@ -1,15 +1,13 @@
 #ifndef AUTO_H
 #define AUTO_H
 
+#include <product.h>
 #include <iostream>
-#include <chapter.h>
 
-
-class Auto : public Chapter
-{
+class Auto : public Product {
 public:
     explicit Auto();
-    void run();
+    void run() override;
 };
 
 #endif // AUTO_H

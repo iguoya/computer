@@ -5,7 +5,7 @@ Factory::Factory()
 
 }
 
-Chapter *Factory::create(string name)
+Product *Factory::create(string name)
 {
     if(name == "auto") {
         return new Auto;

@@ -1,14 +1,14 @@
 #ifndef FACTORY_H
 #define FACTORY_H
 
-#include "chapter.h"
+#include "product.h"
 #include "auto.h"
 
 class Factory
 {
 public:
     Factory();
-    static Chapter* create(string name);
+    static Product* create(string name);
 };
 
 #endif // FACTORY_H

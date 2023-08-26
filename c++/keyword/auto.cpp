@@ -1,11 +1,8 @@
 #include "auto.h"
 
-Auto::Auto()
-{
+Auto::Auto() {}
 
-}
-
-void Auto::run()
-{
-    cout<<"auto world"<<endl;
+void Auto::run() {
+    cout << "auto world" << endl;
+    display("hello worldddddddd");
 }

@@ -7,41 +7,33 @@
 
 using namespace std;
 using namespace Glib;
-using namespace Gtk;
 
-
-class ModelColumns : public Gtk::TreeModel::ColumnRecord
-{
+class ModelColumns : public Gtk::TreeModel::ColumnRecord {
 public:
-    ModelColumns() {
-        add(chapter);
-        add(identifier);
-        add(description);
-        //            add(priority);
-    }
+  ModelColumns() {
+    add(chapter);
+    add(identifier);
+    add(description);
+    //            add(priority);dddddddddddds
+  }
 
-    Gtk::TreeModelColumn<ustring> chapter;
-    Gtk::TreeModelColumn<ustring> identifier;
-    Gtk::TreeModelColumn<ustring> description;
-    //        Gtk::TreeModelColumn<uint8_t> priority;
+  Gtk::TreeModelColumn<ustring> chapter;
+  Gtk::TreeModelColumn<ustring> identifier;
+  Gtk::TreeModelColumn<ustring> description;
+  //        Gtk::TreeModelColumn<uint8_t> priority;
 };
 
-
-class MenuModel
-{
+class MenuModel {
 public:
-    MenuModel();
+  MenuModel();
+  RefPtr<Gtk::TreeStore> model;
 
-    RefPtr<Gtk::TreeStore> getModel();
-
-//private:
-    RefPtr<Gtk::TreeStore> model;
-    using MenuNode = struct {
+private:
+  using MenuNode = struct {
     ustring chapter;
     ustring identifier;
     ustring description;
-};
-
+  };
 };
 
 #endif // MENU_H
