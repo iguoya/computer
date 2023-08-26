@@ -16,16 +16,20 @@ class MainWindow : public Gtk::ApplicationWindow
 {
 public:
     MainWindow(GtkApplicationWindow* cobject, const Glib::RefPtr<Gtk::Builder>& refBuilder);
-//    MainWindow* create();
-
 
 protected:
-
-
+    void on_selected();
 
 private:
     RefPtr<Gtk::Builder> builder;
 
+    TreeView* menu;
+    MenuModel menuModel;
+    ModelColumns column;
+    RefPtr<TreeStore> list_store;
+
+    Gtk::TextView* textView;
+    Glib::RefPtr<Gtk::TextBuffer> textBuffer;
 };
 
 

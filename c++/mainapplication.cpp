@@ -24,9 +24,7 @@ MainWindow* MainApplication::create_window() {
     GtkApplicationWindow* sss = nullptr;
 
     auto window = new MainWindow(sss, builder);
-
     builder->get_widget_derived("window", window);
-
     add_window(*window);
     window->signal_hide().connect(sigc::bind(sigc::mem_fun(*this, &MainApplication::on_hide_window), window));
     return window;
