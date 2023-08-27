@@ -3,6 +3,5 @@
 Auto::Auto() {}
 
 void Auto::run() {
-    cout << "auto world" << endl;
     display("hello worldddddddd");
 }

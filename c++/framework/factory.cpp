@@ -5,10 +5,17 @@ Factory::Factory()
 
 }
 
-Product *Factory::create(string name)
+Product *Factory::create(Identifier type)
 {
-    if(name == "auto") {
+    switch(type) {
+    case Identifier::Keyword:
+        return new KeyWord;
+    case Identifier::Auto:
         return new Auto;
+    case Identifier::Const:
+        break;
+    default:
+        return new KeyWord;
     }
-    return new Auto;
 }
+

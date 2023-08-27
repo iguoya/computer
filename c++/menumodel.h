@@ -3,22 +3,19 @@
 
 #include <gtkmm.h>
 #include <vector>
-//#include <string>
+#include "identifier.h"
 
 using namespace std;
 using namespace Glib;
 
+
+
 class ModelColumns : public Gtk::TreeModel::ColumnRecord {
 public:
-  ModelColumns() {
-    add(chapter);
-    add(identifier);
-    add(description);
-    //            add(priority);dddddddddddds
-  }
+  ModelColumns();
 
-  Gtk::TreeModelColumn<ustring> chapter;
-  Gtk::TreeModelColumn<ustring> identifier;
+  Gtk::TreeModelColumn<ustring> name;
+  Gtk::TreeModelColumn<Identifier> identifier;
   Gtk::TreeModelColumn<ustring> description;
   //        Gtk::TreeModelColumn<uint8_t> priority;
 };
@@ -30,8 +27,8 @@ public:
 
 private:
   using MenuNode = struct {
-    ustring chapter;
-    ustring identifier;
+    ustring name;
+    Identifier identifier;
     ustring description;
   };
 };

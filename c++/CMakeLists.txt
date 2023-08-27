@@ -45,8 +45,10 @@ add_executable(c++
     mainapplication.cpp
     mainwindow.cpp
     menumodel.cpp
+    framework/identifier.h
     framework/product.cpp
     framework/factory.cpp
+    keyword/keyword.cpp
     keyword/auto.cpp
     ${RESOURCE_FILE}
     )
