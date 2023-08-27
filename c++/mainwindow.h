@@ -19,6 +19,9 @@ public:
 protected:
     void on_selected();
     void display(string msg);
+    void displays(vector<string> msgs);
+    void displayTable(vector<pair<string, Gtk::TreeModelColumn<Glib::ustring>>> columns,
+                      vector<vector<string>> result);
 private:
     RefPtr<Gtk::Builder> builder;
     static MainWindow* window;
@@ -46,6 +49,16 @@ private:
         Gtk::TreeModelColumn<Glib::ustring> age;
     };
 
+    class SModelColumns : public Gtk::TreeModel::ColumnRecord
+    {
+    public:
+        SModelColumns();
+
+        Gtk::TreeModelColumn<Glib::ustring> a;
+        Gtk::TreeModelColumn<Glib::ustring> b;
+        Gtk::TreeModelColumn<Glib::ustring> c;
+        Gtk::TreeModelColumn<Glib::ustring> d;
+    };
 };
 
 

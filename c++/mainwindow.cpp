@@ -8,6 +8,10 @@ MainWindow::MainWindow(GtkApplicationWindow *cobject,
 
     builder->get_widget("treeview_menu", menu);
     menu->set_model(menuModel.model);
+    menu->expand_all();
+    menu->get_selection()->signal_changed().connect(
+                sigc::mem_fun(*this, &MainWindow::on_selected));
+
 
     builder->get_widget("textview", textView);
     textBuffer = Glib::RefPtr<Gtk::TextBuffer>::cast_dynamic(
@@ -16,37 +20,45 @@ MainWindow::MainWindow(GtkApplicationWindow *cobject,
     textView->set_buffer(textBuffer);
 
 
-
-    menu->expand_all();
-    menu->get_selection()->signal_changed().connect(
-                sigc::mem_fun(*this, &MainWindow::on_selected));
-
-
     TModelColumns tm;
-    //    //    RefPtr<Gtk::TreeStore> list_store;
+    SModelColumns model;
+
+    builder->get_widget("listview", listView);
+    listView->append_column("column.first", model.a);
+    listView->append_column("column.firsfft", model.b);
+    listView->append_column("column.firsvvv", model.c);
+    listView->append_column("column.firszzz", model.d);
+
+
+    listStore = Gtk::ListStore::create(model);
+    listView->set_model(listStore);
+
+    auto row = *(listStore->append());
+    row.set_value<ustring>(0, "2");
+    row.set_value<ustring>(1, "Joey Jojo");
+    row.set_value<ustring>(2, "2");
+    row.set_value<ustring>(3, "Joey Jojo");
+
+    row = *(listStore->append());
+    row.set_value<ustring>(0, "3");
+    row.set_value<ustring>(1, "Rob McRoberts");
+    row.set_value<ustring>(2, "2");
+    row.set_value<ustring>(3, "Joey Jojo");
+
+
+
+
+
+
+    //    listView->append_column("name", tm.name);
+    //    listView->append_column("age", tm.age);
 
 
     //    listStore =  RefPtr<Gtk::ListStore>::cast_dynamic(
     //                builder->get_object("liststore"));
-    listStore = Gtk::ListStore::create(tm);
 
 
-    //    listStore->
 
-    //    //    //Fill the TreeView's model
-    auto row = *(listStore->append());
-    //    row[tm.name] = "Billy Bob";
-    //    row[tm.age] = "1";
-    row.set_value<ustring>(0, "Billy Bob");
-    row.set_value<ustring>(1, "111");
-    row = *(listStore->append());
-    row[tm.name] = "Lisa";
-    row[tm.age] = "27";
-
-    builder->get_widget("listview", listView);
-    listView->set_model(listStore);
-    listView->append_column("namesss", tm.name);
-    listView->append_column("age", tm.age);
 
     //    row = *(listStore->append());
 
@@ -91,7 +103,7 @@ MainWindow::MainWindow(GtkApplicationWindow *cobject,
     //      column->set_reorderable();
     //    }
 
-    show_all_children();
+    //    show_all_children();
 
 
     //        auto styleProvider = Gtk::CssProvider::create();
@@ -138,13 +150,13 @@ void MainWindow::on_selected() {
         if(product != nullptr) {
             product->display.connect(sigc::mem_fun(*this,
                                                    &MainWindow::display));
-            //            product->displays.connect(sigc::mem_fun(*this,
-            //                                                     &MainWindow::display));
+            product->displays.connect(sigc::mem_fun(*this,
+                                                    &MainWindow::displays));
 
-            //            product->set_columns.connect(sigc::mem_fun(*this,
-            //                                                         &MainWindow::setTableColumns));
-            //            product->display_table.connect(sigc::mem_fun(*this,
-            //                                                           &MainWindow::displayTable));
+            product->displayTable.connect(sigc::mem_fun(*this,
+                                                        &MainWindow::displayTable));
+
+
             product->run();
         }
     }
@@ -155,6 +167,37 @@ void MainWindow::on_selected() {
 void MainWindow::display(string msg)
 {
     textBuffer->insert_at_cursor(msg+"\n");
+}
+
+void MainWindow::displays(vector<string> msgs)
+{
+    for(auto msg : msgs) {
+        textBuffer->insert_at_cursor(msg+"\n");
+    }
+}
+
+void MainWindow::displayTable(vector<pair<string, Gtk::TreeModelColumn<ustring> > > columns, vector<vector<string> > result)
+{
+    //    auto row = *(listStore->append());
+    //    row.set_value<ustring>(0, "3");
+    //    row.set_value<ustring>(1, "Rob McRoberts");
+    //    row.set_value<ustring>(2, "2");
+    //    row.set_value<ustring>(3, "Joey Jojo");
+//    listView->remove_all_columns();
+//    for(auto column : columns) {
+//        cout<<column.first<<"---"<<endl;
+//        listView->append_column(column.first, column.second);
+//    }
+
+    for(auto record : result) {
+        auto row = *(listStore->append());
+        for(size_t i = 0; i < record.size(); ++i) {
+            cout<<i<<":"<<record[i]<<"$$$"<<endl;
+            row.set_value<ustring>(static_cast<int>(i), record[i]);
+        }
+    }
+
+
 }
 
 //void MainWindow::display(vector<Row> result)
@@ -174,3 +217,11 @@ void MainWindow::display(string msg)
 
 
 
+
+MainWindow::SModelColumns::SModelColumns()
+{
+
+    add(a); add(b); add(c);add(d);
+
+
+}
