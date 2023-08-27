@@ -15,10 +15,6 @@ void KeyWord::run()
     };
     displays(msgs);
 
-
-    //    void MainWindow::displayTable(, )
-    //    {
-
     Gtk::TreeModelColumn<ustring> a;
     Gtk::TreeModelColumn<ustring> b;
     Gtk::TreeModelColumn<ustring> c;

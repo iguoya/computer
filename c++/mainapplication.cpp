@@ -26,10 +26,7 @@ MainWindow *MainApplication::create_window() {
     window->signal_hide().connect(sigc::bind(
                                       sigc::mem_fun(*this, &MainApplication::on_hide_window), window));
 
-    cout<<"world"<<endl;
-
-
-
+    cout<<"create window finish..."<<endl;
     return window;
 }
 

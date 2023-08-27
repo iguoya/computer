@@ -39,25 +39,11 @@ private:
     Glib::RefPtr<Gtk::TextBuffer> textBuffer;
     RefPtr<Gtk::TextBuffer::Mark> m_endMark;
 
-
-    class TModelColumns : public Gtk::TreeModel::ColumnRecord
-    {
-    public:
-        TModelColumns() { add(name); add(age); }
-
-        Gtk::TreeModelColumn<Glib::ustring> name;
-        Gtk::TreeModelColumn<Glib::ustring> age;
-    };
-
     class SModelColumns : public Gtk::TreeModel::ColumnRecord
     {
     public:
-        SModelColumns();
-
-        Gtk::TreeModelColumn<Glib::ustring> a;
-        Gtk::TreeModelColumn<Glib::ustring> b;
-        Gtk::TreeModelColumn<Glib::ustring> c;
-        Gtk::TreeModelColumn<Glib::ustring> d;
+        SModelColumns(size_t n);
+        vector<Gtk::TreeModelColumn<Glib::ustring>> columns;
     };
 };
 

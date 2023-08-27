@@ -19,93 +19,15 @@ MainWindow::MainWindow(GtkApplicationWindow *cobject,
     //    textBuffer = Gtk::TextBuffer::create();
     textView->set_buffer(textBuffer);
 
-
-    TModelColumns tm;
-    SModelColumns model;
-
+    SModelColumns model(10);
     builder->get_widget("listview", listView);
-    listView->append_column("column.first", model.a);
-    listView->append_column("column.firsfft", model.b);
-    listView->append_column("column.firsvvv", model.c);
-    listView->append_column("column.firszzz", model.d);
-
-
+    for(size_t i = 0; i < model.columns.size(); ++i) {
+        listView->append_column(to_string(i), model.columns[i]);
+    }
     listStore = Gtk::ListStore::create(model);
     listView->set_model(listStore);
 
-    auto row = *(listStore->append());
-    row.set_value<ustring>(0, "2");
-    row.set_value<ustring>(1, "Joey Jojo");
-    row.set_value<ustring>(2, "2");
-    row.set_value<ustring>(3, "Joey Jojo");
-
-    row = *(listStore->append());
-    row.set_value<ustring>(0, "3");
-    row.set_value<ustring>(1, "Rob McRoberts");
-    row.set_value<ustring>(2, "2");
-    row.set_value<ustring>(3, "Joey Jojo");
-
-
-
-
-
-
-    //    listView->append_column("name", tm.name);
-    //    listView->append_column("age", tm.age);
-
-
-    //    listStore =  RefPtr<Gtk::ListStore>::cast_dynamic(
-    //                builder->get_object("liststore"));
-
-
-
-
-    //    row = *(listStore->append());
-
-
-    //    listView->set_model(listStore);
-    //    row = *(m_refTreeModel->append());
-    //    row[m_Columns.m_col_id] = 2;
-    //    row[m_Columns.m_col_name] = "Joey Jojo";
-    //    row[m_Columns.m_col_number] = 20;
-    //    row[m_Columns.m_col_percentage] = 40;
-
-    //    row = *(m_refTreeModel->append());
-    //    row[m_Columns.m_col_id] = 3;
-    //    row[m_Columns.m_col_name] = "Rob McRoberts";
-    //    row[m_Columns.m_col_number] = 30;
-    //    row[m_Columns.m_col_percentage] = 70;
-
-    //    //Add the TreeView's view columns:
-    //    //This number will be shown with the default numeric formatting.
-    //    m_TreeView.append_column("ID", m_Columns.m_col_id);
-    //    m_TreeView.append_column("Name", m_Columns.m_col_name);
-
-    //    m_TreeView.append_column_numeric("Formatted number", m_Columns.m_col_number,
-    //            "%010d" /* 10 digits, using leading zeroes. */);
-
-    //    //Display a progress bar instead of a decimal number:
-    //    auto cell = Gtk::make_managed<Gtk::CellRendererProgress>();
-    //    int cols_count = m_TreeView.append_column("Some percentage", *cell);
-    //    auto pColumn = m_TreeView.get_column(cols_count - 1);
-    //    if(pColumn)
-    //    {
-    //      pColumn->add_attribute(cell->property_value(), m_Columns.m_col_percentage);
-    //    }
-
-    //    //Make all the columns reorderable:
-    //    //This is not necessary, but it's nice to show the feature.
-    //    //You can use TreeView::set_column_drag_function() to more
-    //    //finely control column drag and drop.
-    //    for(guint i = 0; i < 2; i++)
-    //    {
-    //      auto column = m_TreeView.get_column(i);
-    //      column->set_reorderable();
-    //    }
-
     //    show_all_children();
-
-
     //        auto styleProvider = Gtk::CssProvider::create();
     //        styleProvider->load_from_resource("/style.css");
 
@@ -123,29 +45,13 @@ MainWindow* MainWindow::create()
 }
 
 void MainWindow::on_selected() {
-    static int count = 0;
     auto iter = menu->get_selection()->get_selected();
     if (iter) // If anything is selected
     {
-        cout<<count<<endl;
         auto row = *iter;
-        //        ustring chapter;
-        //        ustring identifier;
-        //        ustring description;
         cout << row[column.name] << "-----" << "-----"
                                  << row[column.description] << "-----" << std::endl;
-
-        //        using ss = row[column.identifier];
         auto product = Factory::create(row.get_value(column.identifier));
-        //        chapter->run();
-
-        //        sigc::signal<void(const string &)> display;
-        //        sigc::signal<void(const vector<string> &)> displays;
-
-        //        sigc::signal<void(const vector<string> &)> set_columns;
-        //        sigc::signal<void(const vector<vector<string>> &)> display_table;
-
-
 
         if(product != nullptr) {
             product->display.connect(sigc::mem_fun(*this,
@@ -156,13 +62,10 @@ void MainWindow::on_selected() {
             product->displayTable.connect(sigc::mem_fun(*this,
                                                         &MainWindow::displayTable));
 
-
             product->run();
         }
     }
 }
-
-
 
 void MainWindow::display(string msg)
 {
@@ -178,50 +81,25 @@ void MainWindow::displays(vector<string> msgs)
 
 void MainWindow::displayTable(vector<pair<string, Gtk::TreeModelColumn<ustring> > > columns, vector<vector<string> > result)
 {
-    //    auto row = *(listStore->append());
-    //    row.set_value<ustring>(0, "3");
-    //    row.set_value<ustring>(1, "Rob McRoberts");
-    //    row.set_value<ustring>(2, "2");
-    //    row.set_value<ustring>(3, "Joey Jojo");
-//    listView->remove_all_columns();
 //    for(auto column : columns) {
-//        cout<<column.first<<"---"<<endl;
-//        listView->append_column(column.first, column.second);
+////        listView->append_column(column.first, column.second);
+//        listView->insert_column(column.first, column.second, 0);
+////        listView->remove_column()
 //    }
 
     for(auto record : result) {
         auto row = *(listStore->append());
         for(size_t i = 0; i < record.size(); ++i) {
-            cout<<i<<":"<<record[i]<<"$$$"<<endl;
+//            cout<<i<<":"<<record[i]<<"$$$"<<endl;
             row.set_value<ustring>(static_cast<int>(i), record[i]);
         }
     }
-
-
 }
 
-//void MainWindow::display(vector<Row> result)
-//{
-//    for(const auto &m : result) {
-//        auto row = *(resultModel->append());
-//        //        row[m_Columns.id] = m.id;
-//        //        row[m_Columns.name] = m.name;
-//        //        row[m_Columns.input] = m.input;
-//        //        row[m_Columns.result] = m.result;
-//    }
-//    //      //Fill the TreeView's model
-//    //      auto row = *(resultModel->append());
-//    //      row[m_Columns.id] = 1;
-//    //      row[m_Columns.name] = "Billy Bob";
-//}
-
-
-
-
-MainWindow::SModelColumns::SModelColumns()
+MainWindow::SModelColumns::SModelColumns(size_t n)
 {
-
-    add(a); add(b); add(c);add(d);
-
-
+    columns.resize(n);
+    for(size_t i = 0; i < n; ++i) {
+        add(columns[i]);
+    }
 }
