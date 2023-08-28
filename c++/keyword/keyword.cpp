@@ -15,23 +15,10 @@ void KeyWord::run()
     };
     displays(msgs);
 
-    Gtk::TreeModelColumn<ustring> a;
-    Gtk::TreeModelColumn<ustring> b;
-    Gtk::TreeModelColumn<ustring> c;
-    Gtk::TreeModelColumn<ustring> d;
-    //    vector<Gtk::TreeModelColumn<ustring>> models(4);
 
-    pair<string, Gtk::TreeModelColumn<ustring> > ss("id", a);
-    vector<pair<string, Gtk::TreeModelColumn<ustring> > > columns = {
-        {"id", a},
-        {"name", b},
-        {"num", c},
-        {"content", d}
+    vector<string> columns = {
+        "AA", "BB", "CC", "DD"
     };
-    //    vector<pair<string, string>> sv {
-    //        {"a", "b"},
-    //    };
-//    KeyWord::ModelColumns model;
     vector<vector<string> > result = {
         {"100", "ak", "123", "world"},
         {"111", "akm", "453", "woreeld"},

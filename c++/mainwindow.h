@@ -20,7 +20,7 @@ protected:
     void on_selected();
     void display(string msg);
     void displays(vector<string> msgs);
-    void displayTable(vector<pair<string, Gtk::TreeModelColumn<Glib::ustring>>> columns,
+    void displayTable(vector<string> columns,
                       vector<vector<string>> result);
 private:
     RefPtr<Gtk::Builder> builder;

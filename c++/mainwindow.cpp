@@ -23,7 +23,17 @@ MainWindow::MainWindow(GtkApplicationWindow *cobject,
     builder->get_widget("listview", listView);
     for(size_t i = 0; i < model.columns.size(); ++i) {
         listView->append_column(to_string(i), model.columns[i]);
+
     }
+
+    //    auto m = listView->get_column(1);
+    //    m->set_title("KKKK");
+
+    //    for(auto m : listView->get_columns()) {
+    //        m->set_title("AAAA");
+    //        cout<<"sssss"<<endl;
+    //    }
+
     listStore = Gtk::ListStore::create(model);
     listView->set_model(listStore);
 
@@ -79,18 +89,21 @@ void MainWindow::displays(vector<string> msgs)
     }
 }
 
-void MainWindow::displayTable(vector<pair<string, Gtk::TreeModelColumn<ustring> > > columns, vector<vector<string> > result)
+void MainWindow::displayTable(vector<string> columns, vector<vector<string> > result)
 {
-//    for(auto column : columns) {
-////        listView->append_column(column.first, column.second);
-//        listView->insert_column(column.first, column.second, 0);
-////        listView->remove_column()
-//    }
+    size_t i = 0;
+    for(auto column : listView->get_columns()) {
+        if(i >= columns.size()) {
+            column->set_title("");
+        } else {
+            column->set_title(columns[i]);
+        }
+        ++i;
+    }
 
     for(auto record : result) {
         auto row = *(listStore->append());
         for(size_t i = 0; i < record.size(); ++i) {
-//            cout<<i<<":"<<record[i]<<"$$$"<<endl;
             row.set_value<ustring>(static_cast<int>(i), record[i]);
         }
     }
