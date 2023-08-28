@@ -9,15 +9,15 @@ typedef struct {
     string result;
 } Row;
 
-class KeyWord : public Product
+class Keyword : public Product
 {
 public:
-    KeyWord();
+    Keyword();
     void run() override;
 
 
 
 //    vector<Row> result;
 };
-
+REGISTERCLASS(Keyword);
 #endif // KEYWORD_H

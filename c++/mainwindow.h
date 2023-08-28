@@ -7,7 +7,7 @@
 #include "menumodel.h"
 #include <iostream>
 #include "factory.h"
-
+#include "product.h"
 using namespace std;
 using namespace Glib;
 

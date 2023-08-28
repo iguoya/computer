@@ -15,7 +15,7 @@ public:
   ModelColumns();
 
   Gtk::TreeModelColumn<ustring> name;
-  Gtk::TreeModelColumn<Identifier> identifier;
+  Gtk::TreeModelColumn<ustring> identifier;
   Gtk::TreeModelColumn<ustring> description;
   //        Gtk::TreeModelColumn<uint8_t> priority;
 };
@@ -28,7 +28,7 @@ public:
 private:
   using MenuNode = struct {
     ustring name;
-    Identifier identifier;
+    ustring identifier;
     ustring description;
   };
 };

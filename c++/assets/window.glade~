@@ -103,7 +103,7 @@
                       <object class="GtkLabel">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="label" translatable="yes">page 1</property>
+                        <property name="label" translatable="yes">文本视图</property>
                       </object>
                       <packing>
                         <property name="tab_fill">False</property>
@@ -126,7 +126,7 @@
                       <object class="GtkLabel">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="label" translatable="yes">page 2</property>
+                        <property name="label" translatable="yes">表格视图</property>
                       </object>
                       <packing>
                         <property name="position">1</property>
@@ -150,7 +150,7 @@
                       <object class="GtkLabel">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="label" translatable="yes">page 3</property>
+                        <property name="label" translatable="yes">树视图</property>
                       </object>
                       <packing>
                         <property name="position">2</property>

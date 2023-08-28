@@ -4,81 +4,74 @@ MenuModel::MenuModel() {
     ModelColumns columns;
     model = Gtk::TreeStore::create(columns);
 
-
-//    enum class Identifier {
-//        Keyword,
-//        Auto,
-//        Const,
-//    };
-
     vector<pair<MenuNode, vector<MenuNode>>> menu {
-        {{"关键字用法", Identifier::Keyword, ""},
+        {{"关键字用法", "Keyword", ""},
             {
-                {"auto", Identifier::Auto, "ssss"},
-                {"decltype", Identifier::Const, "vvvvv"},
-                {"using", Identifier::Const, "vvvvv"},
-                {"lambda", Identifier::Const, "vvvvv"},
-                {"const", Identifier::Const, "vvvvv"},
-                {"constexpr", Identifier::Const, "vvvvv"},
-                {"move", Identifier::Const, "vvvvv"},
-                {"nullptr", Identifier::Const, "vvvvv"},
-                {"shared_ptr", Identifier::Const, "vvvvv"},
-                {"unique_ptr", Identifier::Const, "vvvvv"},
-                {"weak_ptr", Identifier::Const, "vvvvv"},
+                {"auto", "Auto", ""},
+                {"const", "Const", ""},
+//                {"decltype", "Const", "vvvvv"},
+//                {"using", "Const", "vvvvv"},
+//                {"lambda", "Const", "vvvvv"},
+//                {"constexpr", "Const", "vvvvv"},
+//                {"move", "Const", "vvvvv"},
+//                {"nullptr", "Const", "vvvvv"},
+//                {"shared_ptr", "Const", "vvvvv"},
+//                {"unique_ptr", "Const", "vvvvv"},
+//                {"weak_ptr", "Const", "vvvvv"},
             }},
 //        {{"高级用法", "grammar", ""},
 //            {
 //                {"函数指针", "FunctionPointer", ""},
-//                {"auto", Identifier::Auto, "dddd"},
-//                {Identifier::Const, Identifier::Const, "1"},
+//                {"auto", "Auto", "dddd"},
+//                {"Const", "Const", "1"},
 //            }},
 //        {{"标准模板库", "grammar", ""},
 //            {
 //                {"FunctionPointer", "函数指针", ""},
-////                {"auto", Identifier::Auto, "dddd"},
-////                {Identifier::Const, Identifier::Const, "1"},
+////                {"auto", "Auto", "dddd"},
+////                {"Const", "Const", "1"},
 //            }},
 //        {{"算法与迭代器", "grammar", ""},
 //            {
 //                {"FunctionPointer", "函数指针", ""},
-////                {Identifier::Auto, Identifier::Auto, "dddd"},
-////                {Identifier::Const, Identifier::Const, "1"},
+////                {"Auto", "Auto", "dddd"},
+////                {"Const", "Const", "1"},
 //            }},
 //        {{"类和对象", "grammar", ""},
 //            {
 //                {"FunctionPointer", "函数指针", ""},
-////                {Identifier::Auto, Identifier::Auto, "dddd"},
-////                {Identifier::Const, Identifier::Const, "1"},
+////                {"Auto", "Auto", "dddd"},
+////                {"Const", "Const", "1"},
 //            }},
 //        {{"继承和派生", "grammar", ""},
 //            {
 //                {"FunctionPointer", "函数指针", ""},
-//                {Identifier::Auto, Identifier::Auto, "dddd"},
-//                {Identifier::Const, Identifier::Const, "1"},
+//                {"Auto", "Auto", "dddd"},
+//                {"Const", "Const", "1"},
 //            }},
 //        {{"模板与泛型", "grammar", ""},
 //            {
 //                {"FunctionPointer", "函数指针", ""},
-//                {Identifier::Auto, Identifier::Auto, "dddd"},
-//                {Identifier::Const, Identifier::Const, "1"},
+//                {"Auto", "Auto", "dddd"},
+//                {"Const", "Const", "1"},
 //            }},
 //        {{"并发与多线程", "grammar", ""},
 //            {
 //                {"FunctionPointer", "函数指针", ""},
-////                {Identifier::Auto, Identifier::Auto, "dddd"},
-////                {Identifier::Const, Identifier::Const, "1"},
+////                {"Auto", "Auto", "dddd"},
+////                {"Const", "Const", "1"},
 //            }},
 //        {{"内存管理", "grammar", ""},
 //            {
 //                {"FunctionPointer", "函数指针", ""},
-////                {Identifier::Auto, Identifier::Auto, "dddd"},
-////                {Identifier::Const, Identifier::Const, "1"},
+////                {"Auto", "Auto", "dddd"},
+////                {"Const", "Const", "1"},
 //            }},
 //        {{"高级话题/新标准", "grammar", ""},
 //            {
 //                {"FunctionPointer", "函数指针", ""},
-////                {Identifier::Auto, Identifier::Auto, "dddd"},
-////                {Identifier::Const, Identifier::Const, "1"},
+////                {"Auto", "Auto", "dddd"},
+////                {"Const", "Const", "1"},
 //            }},
 
     };
@@ -107,7 +100,7 @@ MenuModel::MenuModel() {
     //        },
     //        {
     //            "语言特性", {
-    //                {Identifier::Auto, Identifier::Auto}, {Identifier::Const, Identifier::Const},
+    //                {"Auto", "Auto"}, {"Const", "Const"},
     //            }
     //        }
 

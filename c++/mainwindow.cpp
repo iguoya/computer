@@ -61,8 +61,8 @@ void MainWindow::on_selected() {
         auto row = *iter;
         cout << row[column.name] << "-----" << "-----"
                                  << row[column.description] << "-----" << std::endl;
-        auto product = Factory::create(row.get_value(column.identifier));
-
+//        auto product = Factory::create(row.get_value(column.identifier));
+        auto product = (Product*)Factory::GetInstance()->CreateObject(row.get_value(column.identifier));
         if(product != nullptr) {
             product->display.connect(sigc::mem_fun(*this,
                                                    &MainWindow::display));
@@ -97,6 +97,7 @@ void MainWindow::displayTable(vector<string> columns, vector<vector<string> > re
             column->set_title("");
         } else {
             column->set_title(columns[i]);
+            column->set_expand(true);
         }
         ++i;
     }

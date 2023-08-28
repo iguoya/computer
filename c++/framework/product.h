@@ -2,6 +2,10 @@
 #define CHAPTER_H
 #include <gtkmm.h>
 #include <sigc++/sigc++.h>
+#include <string>
+#include <iostream>
+#include "factory.h"
+#include <boost/format.hpp>
 
 using namespace std;
 using namespace Glib;

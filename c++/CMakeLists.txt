@@ -6,7 +6,7 @@ project(c++
     LANGUAGES CXX
     ) #设置工程名
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 #message(${CMAKE_CURRENT_SOURCE_DIR})
@@ -23,6 +23,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(PkgConfig)
 pkg_search_module(GTKMM REQUIRED gtkmm-3.0)
 include_directories(${GTKMM_INCLUDE_DIRS})
+find_package(Boost REQUIRED COMPONENTS)
+include_directories(${Boost_INCLUDE_DIR})
 
 include_directories(framework/)
 include_directories(keyword/)
@@ -47,12 +49,14 @@ add_executable(c++
     menumodel.cpp
     framework/identifier.h
     framework/product.cpp
+    framework/singleton.cpp
     framework/factory.cpp
     keyword/keyword.cpp
     keyword/auto.cpp
+    keyword/const.cpp
     ${RESOURCE_FILE}
     )
-target_link_libraries(c++ ${GTKMM_LIBRARIES})
+target_link_libraries(c++ ${GTKMM_LIBRARIES} ${Boost_LIBRARIES})
 #target_compile_options(c++ PRIVATE ${GTKMM_CFLAGS_OTHER})
 #target_link_libraries(
 #    c++
