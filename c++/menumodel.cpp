@@ -7,14 +7,16 @@ MenuModel::MenuModel() {
     vector<pair<MenuNode, vector<MenuNode>>> menu {
         {{"关键字用法", "Keyword", ""},
             {
-                {"auto", "Auto", ""},
+                {"nullptr", "Nullptr", ""},
                 {"const", "Const", ""},
+                {"auto", "Auto", ""},
+                {"tuple", "Tuple", ""},
 //                {"decltype", "Const", "vvvvv"},
 //                {"using", "Const", "vvvvv"},
 //                {"lambda", "Const", "vvvvv"},
 //                {"constexpr", "Const", "vvvvv"},
 //                {"move", "Const", "vvvvv"},
-//                {"nullptr", "Const", "vvvvv"},
+
 //                {"shared_ptr", "Const", "vvvvv"},
 //                {"unique_ptr", "Const", "vvvvv"},
 //                {"weak_ptr", "Const", "vvvvv"},

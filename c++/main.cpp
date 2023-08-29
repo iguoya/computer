@@ -1,7 +1,7 @@
-#include "mainapplication.h"
+#include "application.h"
 
 int main(int argc, char *argv[])
 {
-    auto app = MainApplication::create();
+    auto app = Application::create();
     return app->run(argc, argv);
 }

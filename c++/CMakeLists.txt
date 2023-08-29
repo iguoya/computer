@@ -1,5 +1,6 @@
-cmake_minimum_required(VERSION 3.10)
-
+#cmake_minimum_required(VERSION 3.10)
+#SET(CMAKE_CXX_COMPILER /usr/bin/clang++)
+#SET(CMAKE_C_COMPILER /usr/bin/clang)
 project(c++
     VERSION 1.0
     DESCRIPTION "c++ 专项练习"
@@ -8,7 +9,8 @@ project(c++
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
+SET (CMAKE_CXX_FLAGS                "-Wall")
+SET (CMAKE_CXX_FLAGS_DEBUG          "-g")
 #message(${CMAKE_CURRENT_SOURCE_DIR})
 
 #find_package(PkgConfig REQUIRED)
@@ -44,7 +46,7 @@ compile_gresources(RESOURCE_FILE XML_OUT TYPE EMBED_C RESOURCES ${RESOURCE_LIST}
 
 add_executable(c++
     main.cpp
-    mainapplication.cpp
+    application.cpp
     mainwindow.cpp
     menumodel.cpp
     framework/identifier.h
@@ -54,6 +56,9 @@ add_executable(c++
     keyword/keyword.cpp
     keyword/auto.cpp
     keyword/const.cpp
+    keyword/nullptr.cpp
+    keyword/tuple.cpp
+
     ${RESOURCE_FILE}
     )
 target_link_libraries(c++ ${GTKMM_LIBRARIES} ${Boost_LIBRARIES})

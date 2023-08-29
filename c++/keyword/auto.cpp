@@ -1,5 +1,5 @@
 #include "auto.h"
-
+//#include <format>
 
 template <typename T>
 string get(){
@@ -15,8 +15,6 @@ string get(){
 Auto::Auto() {}
 
 void Auto::run() {
-    display((boost::format("%s: %d+%d=%d\n") % "sum" % 5 % 6 % (5 + 6)).str());
-
     display((boost::format("类型A : get 返回 %d") %  get<AutoA>()).str());
     display((boost::format("类型B : get 返回 %d") %  get<AutoB>()).str());
 //    display(get<AutoB>());
