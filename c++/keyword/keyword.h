@@ -14,10 +14,6 @@ class Keyword : public Product
 public:
     Keyword();
     void run() override;
-
-
-
-//    vector<Row> result;
 };
 REGISTERCLASS(Keyword);
 #endif // KEYWORD_H

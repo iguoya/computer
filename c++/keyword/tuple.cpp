@@ -13,5 +13,5 @@ tuple<int, double, string> Tuple::multi_return()
 void Tuple::run()
 {
     auto [x, y, z] = multi_return();
-    display((boost::format("%d , %f, %s ") %x  %y %z).str());
+    display(format("%d , %f, %s ", x, y, z.c_str()));
 }

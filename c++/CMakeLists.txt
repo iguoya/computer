@@ -9,6 +9,7 @@ project(c++
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++20")
 SET (CMAKE_CXX_FLAGS                "-Wall")
 SET (CMAKE_CXX_FLAGS_DEBUG          "-g")
 #message(${CMAKE_CURRENT_SOURCE_DIR})
@@ -53,11 +54,14 @@ add_executable(c++
     framework/product.cpp
     framework/singleton.cpp
     framework/factory.cpp
+    basic/limits.cpp
+    basic/define.cpp
     keyword/keyword.cpp
     keyword/auto.cpp
     keyword/const.cpp
     keyword/nullptr.cpp
     keyword/tuple.cpp
+    keyword/decltype.cpp
 
     ${RESOURCE_FILE}
     )

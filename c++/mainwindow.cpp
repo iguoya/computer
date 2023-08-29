@@ -23,7 +23,6 @@ MainWindow::MainWindow(GtkApplicationWindow *cobject,
     builder->get_widget("listview", listView);
     for(size_t i = 0; i < model.columns.size(); ++i) {
         listView->append_column(to_string(i), model.columns[i]);
-
     }
 
     //    auto m = listView->get_column(1);
@@ -37,6 +36,7 @@ MainWindow::MainWindow(GtkApplicationWindow *cobject,
     listStore = Gtk::ListStore::create(model);
     listView->set_model(listStore);
 
+    builder->get_widget("treeview", treeView);
     //    show_all_children();
     //        auto styleProvider = Gtk::CssProvider::create();
     //        styleProvider->load_from_resource("/style.css");
@@ -59,9 +59,9 @@ void MainWindow::on_selected() {
     if (iter) // If anything is selected
     {
         auto row = *iter;
-        cout << row[column.name] << "-----" << "-----"
-                                 << row[column.description] << "-----" << std::endl;
-//        auto product = Factory::create(row.get_value(column.identifier));
+//        cout << row[column.name] << "-----"
+//             << row[column.description] << "-----" << std::endl;
+        //        auto product = Factory::create(row.get_value(column.identifier));
         auto product = (Product*)Factory::GetInstance()->CreateObject(row.get_value(column.identifier));
         if(product != nullptr) {
             product->display.connect(sigc::mem_fun(*this,
