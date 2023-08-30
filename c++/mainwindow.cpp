@@ -91,6 +91,7 @@ void MainWindow::displays(vector<string> msgs)
 
 void MainWindow::displayTable(vector<string> columns, vector<vector<string> > result)
 {
+
     size_t i = 0;
     for(auto column : listView->get_columns()) {
         if(i >= columns.size()) {
@@ -101,6 +102,8 @@ void MainWindow::displayTable(vector<string> columns, vector<vector<string> > re
         }
         ++i;
     }
+
+    listStore->clear();
 
     for(auto record : result) {
         auto row = *(listStore->append());

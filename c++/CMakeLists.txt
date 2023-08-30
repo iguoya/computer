@@ -56,6 +56,8 @@ add_executable(c++
     framework/factory.cpp
     basic/limits.cpp
     basic/define.cpp
+    basic/pointer.cpp
+    basic/getline.cpp
     keyword/keyword.cpp
     keyword/auto.cpp
     keyword/const.cpp

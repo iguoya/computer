@@ -36,6 +36,17 @@ public:
         return string(buf.get(), buf.get() + size_buf - 1);
     }
 
+    // str: 要分割的字符串
+    // tokens: 保存分割结果的字符串数组
+    void split(const std::string& str,
+               std::vector<std::string>& tokens) {
+        tokens.clear();
+
+        std::istringstream iss(str);
+        std::copy(std::istream_iterator<std::string>(iss),
+                  std::istream_iterator<std::string>(),
+                  std::back_inserter(tokens));
+    }
 
     //  sigc::signal<void(const vector<string> &)> set_columns;
     //  sigc::signal<void(const vector<vector<string>> &)> display_table;

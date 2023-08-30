@@ -9,7 +9,8 @@ MenuModel::MenuModel() {
             {
                 {"data type", "Limits", "类型限制"},
                 {"define", "Define", "dddd"},
-                {"Const", "Const", "1"},
+                {"pointer", "Pointer", "指针"},
+                {"getline", "Getline", "获取命令行输入"},
             }},
         {{"关键字用法", "Keyword", ""},
             {
