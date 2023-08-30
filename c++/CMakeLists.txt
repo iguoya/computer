@@ -58,6 +58,7 @@ add_executable(c++
     basic/define.cpp
     basic/pointer.cpp
     basic/getline.cpp
+    basic/random.cpp
     keyword/keyword.cpp
     keyword/auto.cpp
     keyword/const.cpp

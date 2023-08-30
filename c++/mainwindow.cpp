@@ -23,6 +23,7 @@ MainWindow::MainWindow(GtkApplicationWindow *cobject,
     builder->get_widget("listview", listView);
     for(size_t i = 0; i < model.columns.size(); ++i) {
         listView->append_column(to_string(i), model.columns[i]);
+        listView->get_column(i)->set_expand(true);
     }
 
     //    auto m = listView->get_column(1);
@@ -98,12 +99,12 @@ void MainWindow::displayTable(vector<string> columns, vector<vector<string> > re
             column->set_title("");
         } else {
             column->set_title(columns[i]);
-            column->set_expand(true);
+//            column->set_expand(true);
         }
         ++i;
     }
 
-    listStore->clear();
+//    listStore->clear();
 
     for(auto record : result) {
         auto row = *(listStore->append());

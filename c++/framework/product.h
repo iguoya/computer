@@ -1,16 +1,15 @@
 #ifndef CHAPTER_H
 #define CHAPTER_H
-#include <gtkmm.h>
 #include <sigc++/sigc++.h>
 #include <string>
 #include <iostream>
+#include <sstream>
+#include <iterator>
+#include <memory>
 #include "factory.h"
 //#include <boost/format.hpp>
 
 using namespace std;
-using namespace Glib;
-
-
 
 class Product {
 public:

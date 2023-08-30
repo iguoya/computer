@@ -8,9 +8,10 @@ MenuModel::MenuModel() {
         {{"语言基础", "Keyword", ""},
             {
                 {"data type", "Limits", "类型限制"},
-                {"define", "Define", "dddd"},
+                {"define", "Define", "自定义"},
                 {"pointer", "Pointer", "指针"},
                 {"getline", "Getline", "获取命令行输入"},
+                {"random", "Random", "随机数"},
             }},
         {{"关键字用法", "Keyword", ""},
             {
