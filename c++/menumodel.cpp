@@ -12,6 +12,7 @@ MenuModel::MenuModel() {
                 {"pointer", "Pointer", "指针"},
                 {"getline", "Getline", "获取命令行输入"},
                 {"random", "Random", "随机数"},
+                {"time", "Time", "时间相关"},
             }},
         {{"关键字用法", "Keyword", ""},
             {

@@ -50,7 +50,6 @@ add_executable(c++
     application.cpp
     mainwindow.cpp
     menumodel.cpp
-    framework/identifier.h
     framework/product.cpp
     framework/singleton.cpp
     framework/factory.cpp
@@ -59,6 +58,7 @@ add_executable(c++
     basic/pointer.cpp
     basic/getline.cpp
     basic/random.cpp
+    basic/time.cpp
     keyword/keyword.cpp
     keyword/auto.cpp
     keyword/const.cpp
