@@ -18,7 +18,9 @@ void Application::on_activate() {
 
 MainWindow *Application::create_window() {
     window = MainWindow::create();
-    auto builder = Gtk::Builder::create_from_resource("/window.glade");
+//    auto builder = Gtk::Builder::create_from_resource("/window.glade");
+    auto builder = Gtk::Builder::create_from_file("window.glade");
+
     //    GtkApplicationWindow *sss = nullptr;
     //    auto window = new MainWindow(sss, builder);
     builder->get_widget_derived("window", window);

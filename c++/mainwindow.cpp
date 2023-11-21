@@ -50,7 +50,9 @@ MainWindow::MainWindow(GtkApplicationWindow *cobject,
 
 MainWindow* MainWindow::create()
 {
-    auto builder = Gtk::Builder::create_from_resource("/window.glade");
+//    auto builder = Gtk::Builder::create_from_resource("/window.glade");
+    auto builder = Gtk::Builder::create_from_file("window.glade");
+
     builder->get_widget_derived("window", window);
     return window;
 }
