@@ -2,6 +2,6 @@
 
 int main(int argc, char *argv[])
 {
-    auto app = Application::create();
+    auto app = new Application;
     return app->run(argc, argv);
 }
