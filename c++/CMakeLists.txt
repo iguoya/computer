@@ -4,7 +4,7 @@ project(c++
     LANGUAGES CXX
 ) #设置工程名
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++20")
 SET (CMAKE_CXX_FLAGS                "-Wall")
@@ -20,8 +20,8 @@ pkg_check_modules(GTKMM REQUIRED gtkmm-3.0)
 #    )
 include_directories(${GTKMM_INCLUDE_DIRS})
 message("${GTKMM_INCLUDE_DIRS}")
-find_package(Boost REQUIRED COMPONENTS)
-include_directories(${Boost_INCLUDE_DIR})
+# find_package(Boost REQUIRED COMPONENTS)
+# include_directories(${Boost_INCLUDE_DIR})
 
 include_directories(framework/)
 include_directories(keyword/)
