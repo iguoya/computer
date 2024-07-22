@@ -1,6 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQuickStyle>
+#include <QQmlContext>
 #include "Bridge/bridge.h"
 
 int main(int argc, char *argv[])
@@ -11,9 +12,13 @@ int main(int argc, char *argv[])
     QQuickStyle::setStyle("Imagine");
 
     qmlRegisterType<Bridge>("design.pattern", 1, 0, "Bridge");
+    Bridge backend;
+
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));
+    engine.rootContext()->setContextProperty("backend", &backend);
+
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
         if (!obj && url == objUrl)

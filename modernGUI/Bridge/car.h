@@ -2,15 +2,17 @@
 #define CAR_H
 
 #include <QObject>
-namespace Bridge {
+#include "engine.h"
+
 class Car
 {
 public:
-    Car();
-    void sss();
+    Car(Engine& engine): engine(engine){};
+    virtual void drive() = 0;
 
+protected:
+    Engine& engine;
 };
-}
 
 
 #endif // CAR_H

@@ -24,6 +24,7 @@ ApplicationWindow {
                 onTriggered: {
 
                     bridge.name = "tiger"
+                    backend.message = "Message updated from QML!"
                     console.log("New file")
                 }
             }
@@ -98,6 +99,11 @@ ApplicationWindow {
         Text {
             anchors.centerIn: parent
             text: "Hello, World!" + bridge.name
+            font.pixelSize: 24
+        }
+        Text {
+//            anchors.centerIn: parent
+            text: backend.message
             font.pixelSize: 24
         }
     }

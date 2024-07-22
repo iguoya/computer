@@ -19,6 +19,7 @@ pkg_check_modules(GTKMM REQUIRED gtkmm-3.0)
 #    ${GTKMM_INCLUDE_DIRS}
 #    )
 include_directories(${GTKMM_INCLUDE_DIRS})
+link_directories(${GTKMM_LIBRARY_DIRS})
 message("${GTKMM_INCLUDE_DIRS}")
 # find_package(Boost REQUIRED COMPONENTS)
 # include_directories(${Boost_INCLUDE_DIR})
@@ -62,7 +63,7 @@ add_executable(c++
 
 #    ${RESOURCE_FILE}
     )
-target_link_libraries(c++ ${GTKMM_LIBRARIES} ${Boost_LIBRARIES})
+target_link_libraries(c++ ${GTKMM_LIBRARIES} ${Boost_LIBRARIES} -lmingw32)
 #target_compile_options(c++ PRIVATE ${GTKMM_CFLAGS_OTHER})
 #target_link_libraries(
 #    c++

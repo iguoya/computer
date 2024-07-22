@@ -11,9 +11,15 @@ class Bridge : public QObject
 //    Q_PROPERTY(int age READ age WRITE setAge NOTIFY ageChanged)
     Q_PROPERTY(QString name MEMBER name NOTIFY nameChanged)
     Q_PROPERTY(int age MEMBER age NOTIFY ageChanged)
+    Q_PROPERTY(QString message READ message WRITE setMessage NOTIFY messageChanged)
 
 public:
     explicit Bridge(QObject *parent = nullptr);
+
+
+    QString message() const;
+    void setMessage(const QString &message);
+
 
 //    void setName(const QString &name) {
 //        if (name != m_name) {
@@ -33,8 +39,12 @@ public:
 signals:
     void nameChanged();
     void ageChanged();
+    void messageChanged();
 public:
+    QString m_message;
+
     QString name;
+
     int age;
 };
 

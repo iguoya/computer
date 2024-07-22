@@ -35,6 +35,12 @@ else()
     add_executable(modernGUI
       main.cpp
       Bridge/car.cpp
+      Bridge/audicar.cpp
+      Bridge/benzcar.cpp
+      Bridge/bev.cpp
+      Bridge/bmwcar.cpp
+      Bridge/iceengine.cpp
+      Bridge/engine.cpp
       Bridge/bridge.cpp
       Bridge/bridge.qmodel
       qml.qrc
