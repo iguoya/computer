@@ -1,6 +1,11 @@
 #include "bmwcar.h"
 
-BMWCar::BMWCar()
+//BMWCar::BMWCar()
+//{
+
+//}
+
+void BMWCar::drive()
 {
 
 }

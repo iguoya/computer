@@ -1,12 +1,17 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import design.pattern 1.0
+//import QtAwesome 1.0
+import QtQuick.Controls.Material 2.14
+
 
 ApplicationWindow {
     visible: true
     width: 800
     height: 600
     title: "Qt Quick Design Pattern"
+
+    Material.theme: Material.Dark
 
     Bridge {
         id: bridge

@@ -1,6 +1,11 @@
 #include "benzcar.h"
 
-BenzCar::BenzCar()
+//BenzCar::BenzCar()
+//{
+
+//}
+
+void BenzCar::drive()
 {
 
 }

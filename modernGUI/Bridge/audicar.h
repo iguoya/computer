@@ -5,7 +5,10 @@
 class AudiCar : public Car
 {
 public:
-    AudiCar();
+    AudiCar(Engine& engine) : Car(engine) {};
+
+    void drive() override;
+
 };
 
 #endif // AUDICAR_H

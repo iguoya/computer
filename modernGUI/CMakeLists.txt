@@ -37,10 +37,13 @@ else()
       Bridge/car.cpp
       Bridge/audicar.cpp
       Bridge/benzcar.cpp
-      Bridge/bev.cpp
+#      Bridge/bev.cpp
       Bridge/bmwcar.cpp
-      Bridge/iceengine.cpp
+#      Bridge/iceengine.cpp
       Bridge/engine.cpp
+      Bridge/fuelengine.cpp
+      Bridge/hybridengine.cpp
+      Bridge/electricengine.cpp
       Bridge/bridge.cpp
       Bridge/bridge.qmodel
       qml.qrc

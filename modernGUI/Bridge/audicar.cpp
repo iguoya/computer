@@ -1,6 +1,11 @@
 #include "audicar.h"
 
-AudiCar::AudiCar()
+//AudiCar::AudiCar()
+//{
+
+//}
+
+void AudiCar::drive()
 {
 
 }

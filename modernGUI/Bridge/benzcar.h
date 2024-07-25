@@ -5,7 +5,9 @@
 class BenzCar : public Car
 {
 public:
-    BenzCar();
+    BenzCar(Engine& engine) : Car(engine) {};
+
+    void drive() override;
 };
 
 #endif // BENZCAR_H

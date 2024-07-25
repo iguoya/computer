@@ -1,6 +1,6 @@
 #ifndef ICEENGINE_H
 #define ICEENGINE_H
-
+#include "engine.h"
 
 class ICEEngine : public Engine
 {
