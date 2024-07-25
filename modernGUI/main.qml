@@ -1,115 +1,102 @@
-import QtQuick 2.14
-import QtQuick.Controls 2.14
-import design.pattern 1.0
-//import QtAwesome 1.0
-import QtQuick.Controls.Material 2.14
-
+import QtQuick 6.4
+import QtQuick.Controls 6.4
+import QtQuick.Layouts 6.4
 
 ApplicationWindow {
     visible: true
     width: 800
     height: 600
-    title: "Qt Quick Design Pattern"
+    title: qsTr("Left Menu Example")
 
-    Material.theme: Material.Dark
+    // 左侧菜单宽度
+    property int menuWidth: 200
 
-    Bridge {
-        id: bridge
-        Component.onCompleted: {
-            bridge.name = "John Doe";
-            bridge.age = 30;
-        }
+    // 菜单项数据模型
+    ListModel {
+        id: menuModel
+        ListElement { name: "Home" }
+        ListElement { name: "Profile" }
+        ListElement { name: "Settings" }
+        ListElement { name: "Help" }
     }
 
-    menuBar: MenuBar {
-        Menu {
-            title: "File"
-            MenuItem {
-                text: "New"
-                onTriggered: {
-
-                    bridge.name = "tiger"
-                    backend.message = "Message updated from QML!"
-                    console.log("New file")
-                }
-            }
-            MenuItem {
-                text: "Open"
-                onTriggered: {
-                    console.log("Open file")
-                }
-            }
-            MenuItem {
-                text: "Save"
-                onTriggered: {
-                    console.log("Save file")
-                }
-            }
-            MenuSeparator {}
-            MenuItem {
-                text: "Exit"
-                onTriggered: {
-                    Qt.quit()
-                }
-            }
-        }
-        Menu {
-            title: "Edit"
-            MenuItem {
-                text: "Undo"
-                onTriggered: {
-                    console.log("Undo action")
-                }
-            }
-            MenuItem {
-                text: "Redo"
-                onTriggered: {
-                    console.log("Redo action")
-                }
-            }
-            MenuSeparator {}
-            MenuItem {
-                text: "Cut"
-                onTriggered: {
-                    console.log("Cut action")
-                }
-            }
-            MenuItem {
-                text: "Copy"
-                onTriggered: {
-                    console.log("Copy action")
-                }
-            }
-            MenuItem {
-                text: "Paste"
-                onTriggered: {
-                    console.log("Paste action")
-                }
-            }
-        }
-        Menu {
-            title: "Help"
-            MenuItem {
-                text: "About"
-                onTriggered: {
-                    console.log("About dialog")
-                }
-            }
-        }
-    }
-
-    Rectangle {
+    // 主布局
+    RowLayout {
         anchors.fill: parent
-        color: "white"
-        Text {
-            anchors.centerIn: parent
-            text: "Hello, World!" + bridge.name
-            font.pixelSize: 24
+
+        // 左侧菜单
+        ListView {
+            id: menuListView
+            width: menuWidth
+            Layout.fillHeight: true
+            model: menuModel
+            delegate: Item {
+                width: menuListView.width
+                height: 50
+                RowLayout {
+                    anchors.fill: parent
+                    spacing: 10
+
+                    Rectangle {
+                        width: 20
+                        height: 50
+                        color: "transparent"
+                    }
+
+                    Text {
+                        text: model.name
+                        font.pixelSize: 20
+                        anchors.verticalCenter: parent.verticalCenter
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                        width: menuListView.width - 40
+                    }
+
+                    Rectangle {
+                        width: 20
+                        height: 50
+                        color: "transparent"
+                    }
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        contentView.currentIndex = index
+                    }
+                }
+            }
         }
-        Text {
-//            anchors.centerIn: parent
-            text: backend.message
-            font.pixelSize: 24
+
+        // 主内容区域
+        StackView {
+            id: contentView
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            initialItem: Rectangle {
+                width: parent.width
+                height: parent.height
+                color: "lightgray"
+                Text {
+                    anchors.centerIn: parent
+                    text: "请选择一个菜单"
+                }
+            }
+
+            Repeater {
+                model: menuModel
+
+                Rectangle {
+                    width: parent.width
+                    height: parent.height
+                    color: "white"
+
+                    Text {
+                        anchors.centerIn: parent
+                        text: model.name
+                    }
+                }
+            }
         }
     }
 }
