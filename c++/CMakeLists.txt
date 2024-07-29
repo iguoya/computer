@@ -1,5 +1,5 @@
 project(c++
-    VERSION 1.0
+#    VERSION 1.0
     DESCRIPTION "c++ 专项练习"
     LANGUAGES CXX
 ) #设置工程名
